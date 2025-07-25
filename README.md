@@ -110,7 +110,7 @@ Current implementation supports simultaneous multi-axis control:
 >
 > <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border-left: 5px solid #ffeeba;">
 > <strong>Accessibility Disclaimer:</strong><br>
-> This control system was developed based on personal experimentation and specific hand movement preferences. While it demonstrates the potential for touchless control systems, it may not be universally suitable > for people with different physical abilities or movement patterns. Further adjustments and customization options would be needed for broader accessibility support.
+> This control system was developed based on personal experimentation and specific hand movement preferences. While it demonstrates the potential for touchless control systems, it may not be universally suitable for people with different physical abilities or movement patterns. Further adjustments and customization options would be needed for broader accessibility support.
 > </div>
 
 ## 🛣️ Roadmap
