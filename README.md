@@ -6,7 +6,7 @@
 </div>
 
 ## 🎯 Objective
-*"Can I play a game with just a single palm without touching anything physically?"*
+*"Can I play a game with just a single hand without touching anything physically?"*
 
 This project explores the possibility of controlling 3D game movements using only hand gestures captured through a webcam, without the need for physical input devices. The goal is to create an intuitive and responsive control system that translates natural hand movements and gestures into game controls.
 
