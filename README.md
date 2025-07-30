@@ -1,20 +1,20 @@
 # 🎮 3D Game Control Through Hand Gestures
 
 <div align="center">
-  <img src="HandAnatomy.jpg" alt="Hand Anatomy Reference" width="600"/>
+  <img src="images/HandAnatomy.jpg" alt="Hand Anatomy Reference" width="600"/>
   <p><em>Hand anatomical reference showing key bone structures and joints</em></p>
 </div>
 
 ## 🎯 Objective
-*"Can I play a game with just a single hand without touching anything physically?"*
+"*Can I play a game with just a single hand without touching anything physically?*"
 
 This project explores the possibility of controlling 3D game movements using only hand gestures captured through a webcam, without the need for physical input devices. The goal is to create an intuitive and responsive control system that translates natural hand movements and gestures into game controls.
 
 ## 📝 Project Status
 
 <div style="background-color: #e6f3ff; padding: 15px; border-radius: 5px; border-left: 5px solid #b8daff;">
-<strong>Development Stage:</strong><br>
-This is currently a proof-of-concept implementation focusing on gesture detection accuracy and validation. The project aims to verify:
+<strong><strong>Development Stage:</strong><br>
+This project is currently under active development and is a proof-of-concept implementation. It is not a complete or production-ready system. The primary focus is on establishing:
 
 1. Reliable hand landmark detection
 2. Accurate gesture recognition
@@ -22,7 +22,7 @@ This is currently a proof-of-concept implementation focusing on gesture detectio
 4. Real-time performance viability
 5. Multi-axis control feasibility
 
-Further development and refinement will be needed for production use.
+Further development, refinement, and optimization are actively in progress.
 </div>
 
 ## 🔍 Technical Overview
@@ -30,23 +30,23 @@ Further development and refinement will be needed for production use.
 ### Core Detection System
 The system employs a multi-layered approach to ensure reliable gesture detection:
 
-1. **Base Detection Layer**
-   - MediaPipe hand landmark detection
-   - 21-point hand skeleton mapping
-   - Real-time position tracking
-   - 3D spatial coordinate system
+1.  **Base Detection Layer**
+    - MediaPipe hand landmark detection
+    - 21-point hand skeleton mapping
+    - Real-time position tracking
+    - 3D spatial coordinate system
 
-2. **Data Processing Layer**
-   - Smoothing algorithms for jitter reduction
-   - Moving average for stable tracking
-   - Normalized coordinate system
-   - Spatial relationship analysis
+2.  **Data Processing Layer**
+    - Smoothing algorithms for jitter reduction
+    - Moving average for stable tracking
+    - Normalized coordinate system
+    - Spatial relationship analysis
 
-3. **Validation Layer**
-   - Three-point triangle validation
-   - Bounding box spatial reference
-   - Anatomical constraint checking
-   - Gesture state verification
+3.  **Validation Layer**
+    - Three-point triangle validation
+    - Bounding box spatial reference
+    - Anatomical constraint checking
+    - Gesture state verification
 
 ## 🛠️ Technical Implementation
 
@@ -79,9 +79,9 @@ The system employs a multi-layered approach to ensure reliable gesture detection
 </div>
 
 The validation system uses three reference points to ensure reliable gesture detection:
-1. Joint anchor point (metacarpal)
-2. Wrist reference point
-3. Bounding box perimeter point
+1.  Joint anchor point (metacarpal)
+2.  Wrist reference point
+3.  Bounding box perimeter point
 
 <div align="center">
   <img src="images/Palm_boundingBox.jpg" alt="Palm bounding box" width="400"/>
@@ -116,78 +116,78 @@ Current implementation supports simultaneous multi-axis control:
 ## 🛣️ Roadmap
 
 ### Planned Features
-1. **Advanced Movement**
-   - [ ] Run/Dodge functionality (Shift equivalent)
-   - [ ] Sprint toggle mechanism
+1.  **Advanced Movement**
+    - [ ] Run/Dodge functionality (Shift equivalent)
+    - [ ] Sprint toggle mechanism
 
-2. **Camera Controls**
-   - [ ] Camera panning
-   - [ ] Zoom in/out
-   - [ ] Camera rotation
+2.  **Camera Controls**
+    - [ ] Camera panning
+    - [ ] Zoom in/out
+    - [ ] Camera rotation
 
-3. **Action Inputs**
-   - [ ] Basic attack mechanism
-   - [ ] Skill activation gestures
-   - [ ] Utility/Item usage controls
+3.  **Action Inputs**
+    - [ ] Basic attack mechanism
+    - [ ] Skill activation gestures
+    - [ ] Utility/Item usage controls
 
-4. **System Improvements**
-   - [ ] Gesture customization interface
-   - [ ] Sensitivity adjustment options
-   - [ ] Calibration presets
-   - [ ] Alternative gesture sets for accessibility
+4.  **System Improvements**
+    - [ ] Gesture customization interface
+    - [ ] Sensitivity adjustment options
+    - [ ] Calibration presets
+    - [ ] Alternative gesture sets for accessibility
 
-5. **Configuration System**
-   - [ ] JSONC-based configuration system
-     ```jsonc
-     {
-       // Input mapping configuration
-       "gestures": {
-         "fist": {
-           "type": "compound",
-           "definition": {
-             "core_fingers": "curled",
-             "thumb": "any",
-             "pinky": "any"
-           },
-           // Multiple possible mappings
-           "mappings": [
-             {
-               "condition": "distance > threshold",
-               "output": "FORWARD"
-             },
-             {
-               "condition": "distance < threshold",
-               "output": "BACKWARD"
-             }
-           ]
-         },
-         "thumb_out": {
-           "type": "single",
-           "validation": "triangle",
-           "points": ["thumb_tip", "index_mcp", "wrist"],
-           "output": "LEFT"
-         }
-       },
-       // Advanced settings
-       "settings": {
-         "smoothing_factor": 3,
-         "detection_confidence": 0.8,
-         "validation_thresholds": {
-           "distance_multiplier": 0.6,
-           "angle_tolerance": 15
-         }
-       }
-     }
-     ```
-   - [ ] Custom gesture definition support
-   - [ ] Input translation configuration
-   - [ ] Validation parameters adjustment
+5.  **Configuration System**
+    - [ ] JSONC-based configuration system
+      ```jsonc
+      {
+        // Input mapping configuration
+        "gestures": {
+          "fist": {
+            "type": "compound",
+            "definition": {
+              "core_fingers": "curled",
+              "thumb": "any",
+              "pinky": "any"
+            },
+            // Multiple possible mappings
+            "mappings": [
+              {
+                "condition": "distance > threshold",
+                "output": "FORWARD"
+              },
+              {
+                "condition": "distance < threshold",
+                "output": "BACKWARD"
+              }
+            ]
+          },
+          "thumb_out": {
+            "type": "single",
+            "validation": "triangle",
+            "points": ["thumb_tip", "index_mcp", "wrist"],
+            "output": "LEFT"
+          }
+        },
+        // Advanced settings
+        "settings": {
+          "smoothing_factor": 3,
+          "detection_confidence": 0.8,
+          "validation_thresholds": {
+            "distance_multiplier": 0.6,
+            "angle_tolerance": 15
+          }
+        }
+      }
+      ```
+    - [ ] Custom gesture definition support
+    - [ ] Input translation configuration
+    - [ ] Validation parameters adjustment
 
-6. **Control Implementation**
-   - [ ] Separate input translation module
-   - [ ] Key mapping system
-   - [ ] Virtual input simulation
-   - [ ] Game-specific profiles
+6.  **Control Implementation**
+    - [ ] Separate input translation module
+    - [ ] Key mapping system
+    - [ ] Virtual input simulation
+    - [ ] Game-specific profiles
 
 ## 💡 Implementation Notes
 
@@ -226,21 +226,21 @@ graph TD
 
 ## 🚀 Getting Started
 
-1. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+1.  Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-2. Run the control system:
-```bash
-python hand_control.py
-```
+2.  Run the control system:
+    ```bash
+    python hand_control.py
+    ```
 
-3. Calibration:
-   - Position your hand in neutral pose
-   - Make a fist with core fingers
-   - Press 'C' to calibrate
-   - System is ready for input
+3.  Calibration:
+    - Position your hand in neutral pose
+    - Make a fist with core fingers
+    - Press 'C' to calibrate
+    - System is ready for input
 
 ## 📈 Performance Considerations
 
@@ -285,17 +285,17 @@ python hand_control.py
 
 ## 🔬 Future Research Areas
 
-1. **Advanced Gesture Recognition**
-   - Machine learning enhancement
-   - Pattern-based prediction
-   - Adaptive calibration
+1.  **Advanced Gesture Recognition**
+    - Machine learning enhancement
+    - Pattern-based prediction
+    - Adaptive calibration
 
-2. **Performance Optimization**
-   - GPU acceleration
-   - Parallel processing
-   - Memory optimization
+2.  **Performance Optimization**
+    - GPU acceleration
+    - Parallel processing
+    - Memory optimization
 
-3. **User Experience**
-   - Fatigue reduction
-   - Gesture ergonomics
-   - Accessibility options
+3.  **User Experience**
+    - Fatigue reduction
+    - Gesture ergonomics
+    - Accessibility options

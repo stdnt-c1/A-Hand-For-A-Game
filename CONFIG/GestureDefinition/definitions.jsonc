@@ -1,0 +1,233 @@
+{
+  "control_types": {
+    "MovementControl": [
+      {
+        "name": "fist_neutral_init",
+        "description": "Trigger when the movement is in a neutral position. The palm is facing the camera.",
+        "validation_criteria": "atleast Ring fingertip is within the Palm Bounding Box, and optionally all fingertips is within the Palm Bounding Box forming a fist.",
+        "file_path": "MOVEMENTS/MovementControl/gestures/fist_neutral_init.py",
+        "output_key": null,
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "thumbs_out_left",
+        "description": "Trigger when the Thumb fingertip extended outward and not within the Palm Bounding Box.",
+        "validation_criteria": "Thumb fingertip is not within the Palm Bounding Box, and optionally all fingertips is within the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/MovementControl/gestures/thumbs_out_left.py",
+        "output_key": "KEY_A",
+        "properties": {
+          "hold": true,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "pinky_out_right",
+        "description": "Trigger when the Pinky fingertip extended outward and not within the Palm Bounding Box.",
+        "validation_criteria": "Pinky fingertip is not within the Palm Bounding Box, and optionally all fingertips is within the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/MovementControl/gestures/pinky_out_right.py",
+        "output_key": "KEY_D",
+        "properties": {
+          "hold": true,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "index_curled_shift",
+        "description": "Trigger when the Index finger is raised while curled, and not within the Palm Bounding Box (optional added property Hold, Repeating (Optional +Interval)) and optionally other fingers are curled and within the Palm Bounding Box.",
+        "validation_criteria": "Index finger Middle Phalanges is within the Joint Bounding Box, and not within the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/MovementControl/gestures/index_curled_shift.py",
+        "output_key": "KEY_SHIFT",
+        "properties": {
+          "hold": true,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "lr_out_space",
+        "description": "Checks for a general left/right movement gesture. This is a placeholder and needs specific implementation based on combined left/right movement criteria.",
+        "validation_criteria": "Placeholder for specific implementation based on combined left/right movement criteria.",
+        "file_path": "MOVEMENTS/MovementControl/gestures/lr_out_space.py",
+        "output_key": null,
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": false
+      },
+      {
+        "name": "jump_space",
+        "description": "Trigger once when the Pinky and Thumb fingertip are extended outward and not within the Palm Bounding Box, and the palm is tilted backwards (optional added property Hold, Repeating (Optional +Interval)) and optionally other fingers are curled and within the Palm Bounding Box.",
+        "validation_criteria": "both Pinky and Thumb fingertip (neutral Movement Left/Right) are not within the Palm Bounding Box, Tilt anchor point line is decreasing inwards from the center of the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/MovementControl/gestures/jump_space.py",
+        "output_key": "KEY_SPACE",
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      }
+    ],
+    "ActionControl": [
+      {
+        "name": "palm_neutral",
+        "description": "Trigger when the palm is in a neutral position.",
+        "validation_criteria": "all fingers are extended outward and not within the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/ActionControl/gestures/palm_neutral_init.py",
+        "output_key": null,
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "atk_lmb",
+        "description": "Trigger once when the gesture is detected (optional added property Hold, Repeating (Optional +Interval)). Requires re-engagement to trigger again.",
+        "validation_criteria": "Thumb fingertip is within the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/ActionControl/gestures/atk_lmb.py",
+        "output_key": "MOUSE_LEFT_CLICK",
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "skill1_e",
+        "description": "Trigger once when the gesture is detected (optional added property Hold, Repeating (Optional +Interval)). Requires re-engagement to trigger again.",
+        "validation_criteria": "Index fingertip is within the Joint Bounding Box and not within the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/ActionControl/gestures/skill1_e.py",
+        "output_key": "KEY_E",
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "skill2_r",
+        "description": "Trigger once when the gesture is detected (optional added property Hold, Repeating (Optional +Interval)). Requires re-engagement to trigger again.",
+        "validation_criteria": "Middle fingertip is within the Joint Bounding Box and not within the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/ActionControl/gestures/skill2_r.py",
+        "output_key": "KEY_R",
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "skill3_q",
+        "description": "Trigger once when the gesture is detected (optional added property Hold, Repeating (Optional +Interval)). Requires re-engagement to trigger again.",
+        "validation_criteria": "Ring fingertip is within the Joint Bounding Box and not within the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/ActionControl/gestures/skill3_q.py",
+        "output_key": "KEY_Q",
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "utility_t",
+        "description": "Trigger once when the gesture is detected (optional added property Hold, Repeating (Optional +Interval)). Requires re-engagement to trigger again.",
+        "validation_criteria": "Pinky fingertip is within the Joint Bounding Box and not within the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/ActionControl/gestures/utility_t.py",
+        "output_key": "KEY_T",
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      }
+    ],
+    "CameraControl": [
+      {
+        "name": "camera_neutral",
+        "description": "Trigger when the camera is in a neutral position.",
+        "validation_criteria": "all Ring and Pinky finger curled and their fingertip is within the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/CameraControl/gestures/axis_neutral_init.py",
+        "output_key": null,
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "pan_control",
+        "description": "Pan control follows the 3 Axis formations from the 3 fingertips of the Middle Finger (X-axis), Index Finger (Y-axis), and Thumb (Z-axis).",
+        "validation_criteria": "Pan movement is considered TRUE if any of the 3 Axis line (fingertip to N-axis point) increased or decreased in length.",
+        "file_path": "MOVEMENTS/CameraControl/gestures/live_pan.py",
+        "output_key": null,
+        "properties": {
+          "hold": true,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      }
+    ],
+    "NavigationControl": [
+      {
+        "name": "peace_sign_enter",
+        "description": "Trigger once when a peace sign gesture is detected, with Index finger and Middle finger extended outward and spaced apart with other fingers curled and within the Palm Bounding Box.",
+        "validation_criteria": "Index and Middle fingertip are extended outward and not within the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/NavigationControl/gestures/peace_sign_enter.py",
+        "output_key": "KEY_ENTER",
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "thumbs_down_esc",
+        "description": "Trigger once when a thumbs down gesture is detected, with Thumb fingertip extended downward and other fingers curled and within the Palm Bounding Box.",
+        "validation_criteria": "Thumb fingertip is extended downward and not within the Palm Bounding Box, while also positioned below the Palm Bounding Box - BOTTOM side.",
+        "file_path": "MOVEMENTS/NavigationControl/gestures/thumbs_down_esc.py",
+        "output_key": "KEY_ESC",
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      },
+      {
+        "name": "tilted_peace_f",
+        "description": "Trigger once when a tilted peace sign gesture is detected, with Index finger and Middle finger extended outward and spaced apart and are tilted to side with other fingers curled and within the Palm Bounding Box.",
+        "validation_criteria": "Index and Middle fingertip are extended outward and not within the Palm Bounding Box, the wrist to anchor point line is extended away from the initial point, and both Index and Middle fingertip are in either to the Left or Right side of the Palm Bounding Box.",
+        "file_path": "MOVEMENTS/NavigationControl/gestures/tilted_peace_f.py",
+        "output_key": "KEY_F",
+        "properties": {
+          "hold": false,
+          "repeating": false,
+          "interval": null
+        },
+        "is_enabled": true
+      }
+    ]
+  }
+}
