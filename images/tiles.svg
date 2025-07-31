@@ -1,0 +1,103 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for top-left tile -->
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient for top-right tile -->
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient for bottom-left tile -->
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#96ceb4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#feca57;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient for bottom-right tile -->
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#feca57;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff9ff3;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Animated gradients for smooth transitions -->
+    <linearGradient id="animGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1">
+        <animate attributeName="stop-color" values="#ff6b6b;#4ecdc4;#45b7d1;#ff6b6b" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1">
+        <animate attributeName="stop-color" values="#4ecdc4;#45b7d1;#96ceb4;#4ecdc4" dur="6s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <linearGradient id="animGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1">
+        <animate attributeName="stop-color" values="#4ecdc4;#45b7d1;#ff9ff3;#4ecdc4" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:1">
+        <animate attributeName="stop-color" values="#45b7d1;#ff9ff3;#feca57;#45b7d1" dur="6s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <linearGradient id="animGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#96ceb4;stop-opacity:1">
+        <animate attributeName="stop-color" values="#96ceb4;#feca57;#ff6b6b;#96ceb4" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#feca57;stop-opacity:1">
+        <animate attributeName="stop-color" values="#feca57;#ff9ff3;#4ecdc4;#feca57" dur="6s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <linearGradient id="animGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#feca57;stop-opacity:1">
+        <animate attributeName="stop-color" values="#feca57;#ff9ff3;#45b7d1;#feca57" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#ff9ff3;stop-opacity:1">
+        <animate attributeName="stop-color" values="#ff9ff3;#96ceb4;#ff6b6b;#ff9ff3" dur="6s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+  </defs>
+  
+  <!-- Centered and scaled tile container -->
+  <g transform="translate(50, 100)">
+    <!-- Top-left tile -->
+    <rect x="0" y="0" width="100" height="100" fill="url(#animGrad1)" rx="6" ry="6"/>
+    
+    <!-- Top-right tile -->
+    <rect x="100" y="0" width="100" height="100" fill="url(#animGrad2)" rx="6" ry="6"/>
+    
+    <!-- Bottom-left tile -->
+    <rect x="0" y="100" width="100" height="100" fill="url(#animGrad3)" rx="6" ry="6"/>
+    
+    <!-- Bottom-right tile -->
+    <rect x="100" y="100" width="100" height="100" fill="url(#animGrad4)" rx="6" ry="6"/>
+    
+    <!-- Subtle borders for definition -->
+    <line x1="100" y1="0" x2="100" y2="200" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <line x1="0" y1="100" x2="200" y2="100" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  </g>
+  
+  <!-- Text Section -->
+  <g transform="translate(300, 0)">
+    <!-- Project text (H3/H4 size) -->
+    <text x="0" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#333" opacity="0.8">
+      Project
+    </text>
+    
+    <!-- Hands-Free text (H1 size) -->
+    <text x="0" y="185" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#2c3e50">
+      Hands-Free
+      <animate attributeName="fill" values="#2c3e50;#e74c3c;#3498db;#2ecc71;#2c3e50" dur="8s" repeatCount="indefinite"/>
+    </text>
+    
+    <!-- Gaming text (H1 size) -->
+    <text x="0" y="230" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#34495e">
+      Gaming
+      <animate attributeName="fill" values="#34495e;#9b59b6;#f39c12;#1abc9c;#34495e" dur="8s" repeatCount="indefinite"/>
+    </text>
+  </g>
+</svg>
