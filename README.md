@@ -1,15 +1,44 @@
 # AzimuthControl - Hand Gesture Recognition System
 
+_"Can I play a game with just a single hand without touching anything physically?"_
+
 A real-time hand gesture recognition system for gaming and control applications using MediaPipe and OpenCV.
 
 ## 🚀 Quick Start
 
+### Prerequisites
+Before installation, ensure you have the required environment. See **[Environment Setup Guide](docs/ENVIRONMENT_SETUP.md)** for detailed requirements including:
+- Python 3.9+ (3.11 recommended)
+- C++ compiler (MinGW-w64 or Visual Studio Build Tools for Windows)
+- Camera/webcam access
+- System libraries and dependencies
+
+### Installation
 ```bash
-# Install dependencies
+# Clone the repository
+git clone https://github.com/stdnt-c1/HandsFree-Gaming.git
+cd HandsFree-Gaming
+
+# Install Python dependencies
 pip install -r requirements.txt
 
-# Run the application
+# Build C++ extensions (optional, for 75% performance boost)
+# Windows
+scripts\build_dll.bat
+# Linux/macOS
+chmod +x scripts/build_dll.sh && ./scripts/build_dll.sh
+
+# Verify installation
+python tests/test_imports.py
+```
+
+### Running the Application
+```bash
+# Run the main application
 python hand_control.py
+
+# Run performance tests
+python tests/test_performance.py
 ```
 
 ## 📁 Project Structure
@@ -128,7 +157,34 @@ Tests cover:
 - Performance benchmarks
 - Edge case handling
 
-## 📊 Performance Monitoring
+## � System Requirements
+
+### Minimum Requirements
+- **OS**: Windows 10, Ubuntu 20.04+, or macOS 11+
+- **Python**: 3.9+ (3.11 recommended)
+- **RAM**: 8GB
+- **Camera**: USB webcam or integrated camera (720p+)
+- **Storage**: 2GB free space
+
+### Recommended Requirements
+- **OS**: Windows 11 or Ubuntu 22.04+
+- **Python**: 3.11
+- **RAM**: 16GB
+- **CPU**: Intel i5/AMD Ryzen 5 or better
+- **Camera**: 1080p webcam with good lighting
+
+### External Dependencies
+- **C++ Compiler**: 
+  - Windows: MinGW-w64 or Visual Studio Build Tools 2022
+  - Linux: GCC/G++ 9+
+  - macOS: Xcode Command Line Tools
+- **System Libraries**: Camera drivers, OpenCV system libraries
+- **Optional**: CUDA toolkit for GPU acceleration
+
+For complete setup instructions, see **[Environment Setup Guide](docs/ENVIRONMENT_SETUP.md)**.  
+For detailed dependency information, see **[Dependencies Documentation](docs/DEPENDENCIES.md)**.
+
+## �📊 Performance Monitoring
 
 The system includes built-in performance monitoring:
 - Real-time FPS tracking
