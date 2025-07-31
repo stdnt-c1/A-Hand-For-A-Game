@@ -1,3 +1,5 @@
+<img src="images/tiles.svg" alt="Description" style="width: 100%; max-width: 600px; height: auto;">
+
 # Hand Gesture Recognition System
 
 _"Can I play a game with just a single hand without touching anything physically?"_
@@ -44,7 +46,7 @@ python tests/test_performance.py
 ## 📁 Project Structure
 
 ```
-AzimuthControl/
+./
 ├── src/                           # Source code
 │   ├── core/                      # Core gesture recognition logic
 │   │   ├── gesture_definitions.py # Gesture validation functions
