@@ -59,8 +59,23 @@
       <stop offset="100%" style="stop-color:#ff9ff3;stop-opacity:1">
         <animate attributeName="stop-color" values="#ff9ff3;#96ceb4;#ff6b6b;#ff9ff3" dur="6s" repeatCount="indefinite"/>
       </stop>
-    </linearGradient>
-  </defs>
+    <!-- Smoky card backgrounds with blur effect -->
+    <defs>
+      <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+      </filter>
+      <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+        <feOffset dx="2" dy="3" result="offset"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.3"/>
+        </feComponentTransfer>
+        <feMerge> 
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/> 
+        </feMerge>
+      </filter>
+    </defs>
   
   <!-- Centered and scaled tile container -->
   <g transform="translate(50, 100)">
@@ -83,8 +98,33 @@
   
   <!-- Text Section -->
   <g transform="translate(300, 0)">
+    <!-- Smoky card background for "Project" -->
+    <rect x="-15" y="120" width="120" height="35" rx="8" ry="8" 
+          fill="rgba(255,255,255,0.15)" 
+          stroke="rgba(255,255,255,0.25)" 
+          stroke-width="1"
+          filter="url(#softShadow)"/>
+    
+    <!-- Smoky card background for "Hands-Free" -->
+    <rect x="-20" y="155" width="280" height="55" rx="12" ry="12" 
+          fill="rgba(255,255,255,0.2)" 
+          stroke="rgba(255,255,255,0.3)" 
+          stroke-width="1"
+          filter="url(#softShadow)">
+      <animate attributeName="fill" values="rgba(255,255,255,0.2);rgba(240,248,255,0.25);rgba(248,240,255,0.25);rgba(240,255,248,0.25);rgba(255,255,255,0.2)" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Smoky card background for "Gaming" -->
+    <rect x="-20" y="205" width="180" height="55" rx="12" ry="12" 
+          fill="rgba(255,255,255,0.2)" 
+          stroke="rgba(255,255,255,0.3)" 
+          stroke-width="1"
+          filter="url(#softShadow)">
+      <animate attributeName="fill" values="rgba(255,255,255,0.2);rgba(255,240,248,0.25);rgba(255,248,240,0.25);rgba(248,255,240,0.25);rgba(255,255,255,0.2)" dur="8s" repeatCount="indefinite"/>
+    </rect>
+    
     <!-- Project text (H3/H4 size) -->
-    <text x="0" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#333" opacity="0.8">
+    <text x="0" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#333" opacity="0.9">
       Project
     </text>
     
