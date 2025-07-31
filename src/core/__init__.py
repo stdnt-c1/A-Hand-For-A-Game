@@ -1,0 +1,3 @@
+"""
+Core gesture recognition functionality.
+"""

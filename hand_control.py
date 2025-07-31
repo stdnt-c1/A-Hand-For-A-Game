@@ -5,13 +5,18 @@ import time
 import psutil
 from pynvml import * # Import NVML library
 
-from utils import (
+# Update imports to use new structure
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+
+from src.utils.geometry_utils import (
     smooth_landmarks, 
     calculate_palm_bbox_norm, 
     is_right_hand,
     calculate_distance
 )
-from visualizer import (
+from src.utils.visualizer import (
     draw_hand_landmarks, 
     display_info, 
     draw_joint_bounding_boxes, 
@@ -21,11 +26,8 @@ from visualizer import (
     draw_tilt_anchor_point, 
     draw_enhanced_fingertip_rois
 )
-from MOVEMENTS.MovementControl.determinator import determine_movement_status
-from MOVEMENTS.ActionControl.determinator import determine_action_status
-from MOVEMENTS.CameraControl.determinator import determine_camera_status
-from MOVEMENTS.NavigationControl.determinator import determine_navigation_status
-from gesture_state import GestureState
+from src.performance.optimized_engine import OptimizedGestureEngine
+from src.core.gesture_state import GestureState
 
 # --- Configuration ---
 SCREEN_WIDTH = 1920
@@ -65,13 +67,14 @@ mp_drawing_styles = mp.solutions.drawing_styles
 cap = cv2.VideoCapture(0, cv2.CAP_MSMF)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, SCREEN_WIDTH)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, SCREEN_HEIGHT)
-cap.set(cv2.CAP_PROP_FPS, 60)
+cap.set(cv2.CAP_PROP_FPS, 30)  # Reduced from 60 to 30 for better performance
 
 fps = 0
 frame_count = 0
 start_time = time.time()
 landmark_history = []
 gesture_state = GestureState()
+gesture_engine = OptimizedGestureEngine()  # New optimized engine
 neutral_area = 0.0
 neutral_distances = None
 is_calibrated = False
@@ -81,7 +84,7 @@ try:
     nvmlInit()
     handle = nvmlDeviceGetHandleByIndex(0) # Assuming single GPU
     gpu_initialized = True
-except NVMLError as error:
+except Exception as error:
     print(f"NVML Initialization Error: {error}")
     gpu_initialized = False
 
@@ -116,10 +119,19 @@ with mp_hands.Hands(
             palm_bbox = calculate_palm_bbox_norm(smoothed_landmark_proto)
 
             if is_calibrated:
-                movement_status = determine_movement_status(smoothed_landmark_proto, palm_bbox, neutral_area, neutral_distances)
-                action_status = determine_action_status(smoothed_landmark_proto, palm_bbox)
-                camera_status = determine_camera_status(smoothed_landmark_proto, palm_bbox, neutral_distances)
-                navigation_status = determine_navigation_status(smoothed_landmark_proto, palm_bbox)
+                # Use optimized gesture engine
+                cpu_usage = psutil.cpu_percent()
+                mem_usage = psutil.virtual_memory().percent
+                
+                gesture_results = gesture_engine.process_frame(
+                    smoothed_landmark_proto, palm_bbox, neutral_area, neutral_distances,
+                    cpu_usage, mem_usage
+                )
+                
+                movement_status = gesture_results.get('movement', 'NEUTRAL')
+                action_status = gesture_results.get('action', 'NEUTRAL')
+                camera_status = gesture_results.get('camera', 'NEUTRAL')
+                navigation_status = gesture_results.get('navigation', 'NEUTRAL')
 
                 gesture_state.update(movement_status, action_status, camera_status, navigation_status)
                 active_gesture = gesture_state.get_active_gesture()

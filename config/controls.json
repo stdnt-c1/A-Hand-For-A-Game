@@ -1,0 +1,230 @@
+{
+  "gesture_controls": {
+    "MovementControl": {
+      "enabled": true,
+      "gestures": [
+        {
+          "name": "fist_neutral_init",
+          "description": "Neutral position with palm facing camera",
+          "validation_function": "validate_fist_neutral",
+          "output_key": null,
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "thumbs_out_left",
+          "description": "Thumb extended outward for left movement",
+          "validation_function": "validate_thumbs_out_left",
+          "output_key": "KEY_A",
+          "properties": {
+            "hold": true,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "pinky_out_right",
+          "description": "Pinky extended outward for right movement",
+          "validation_function": "validate_pinky_out_right",
+          "output_key": "KEY_D",
+          "properties": {
+            "hold": true,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "index_curled_shift",
+          "description": "Index finger curled for shift modifier",
+          "validation_function": "validate_index_curled_shift",
+          "output_key": "KEY_SHIFT",
+          "properties": {
+            "hold": true,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "jump_space",
+          "description": "Pinky and Thumb extended with palm tilted backwards",
+          "validation_function": "validate_jump_space",
+          "output_key": "KEY_SPACE",
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        }
+      ]
+    },
+    "ActionControl": {
+      "enabled": true,
+      "gestures": [
+        {
+          "name": "palm_neutral",
+          "description": "Palm in neutral position with all fingers extended",
+          "validation_function": "validate_palm_neutral",
+          "output_key": null,
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "atk_lmb",
+          "description": "Thumb within palm for left mouse click",
+          "validation_function": "validate_attack_lmb",
+          "output_key": "MOUSE_LEFT_CLICK",
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "skill1_e",
+          "description": "Index finger in joint box for skill E",
+          "validation_function": "validate_skill1_e",
+          "output_key": "KEY_E",
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "skill2_r",
+          "description": "Middle finger in joint box for skill R",
+          "validation_function": "validate_skill2_r",
+          "output_key": "KEY_R",
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "skill3_q",
+          "description": "Ring finger in joint box for skill Q",
+          "validation_function": "validate_skill3_q",
+          "output_key": "KEY_Q",
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "utility_t",
+          "description": "Pinky in joint box for utility T",
+          "validation_function": "validate_utility_t",
+          "output_key": "KEY_T",
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        }
+      ]
+    },
+    "CameraControl": {
+      "enabled": true,
+      "gestures": [
+        {
+          "name": "camera_neutral",
+          "description": "Ring and Pinky curled within palm",
+          "validation_function": "validate_camera_neutral",
+          "output_key": null,
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "pan_control",
+          "description": "3-axis pan control using finger positions",
+          "validation_function": "validate_pan_control",
+          "output_key": null,
+          "properties": {
+            "hold": true,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        }
+      ]
+    },
+    "NavigationControl": {
+      "enabled": true,
+      "gestures": [
+        {
+          "name": "peace_sign_enter",
+          "description": "Peace sign for Enter key",
+          "validation_function": "validate_peace_sign_enter",
+          "output_key": "KEY_ENTER",
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "thumbs_down_esc",
+          "description": "Thumbs down for Escape key",
+          "validation_function": "validate_thumbs_down_esc",
+          "output_key": "KEY_ESC",
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "tilted_peace_f",
+          "description": "Tilted peace sign for F key",
+          "validation_function": "validate_tilted_peace_f",
+          "output_key": "KEY_F",
+          "properties": {
+            "hold": false,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        }
+      ]
+    }
+  },
+  "performance_settings": {
+    "target_fps": 30,
+    "max_processing_time_ms": 20,
+    "enable_caching": true,
+    "cache_duration_ms": 100,
+    "enable_jit_compilation": true
+  },
+  "system_settings": {
+    "camera_index": 0,
+    "window_width": 1280,
+    "window_height": 720,
+    "enable_debug_output": false,
+    "enable_performance_monitoring": true
+  }
+}
