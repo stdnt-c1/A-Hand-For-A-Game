@@ -1,6 +1,6 @@
 <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Animated gradients for smooth transitions -->
+    <!-- Animated gradients for tiles -->
     <linearGradient id="animGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1">
         <animate attributeName="stop-color" values="#ff6b6b;#4ecdc4;#45b7d1;#ff6b6b" dur="6s" repeatCount="indefinite"/>
@@ -36,55 +36,134 @@
         <animate attributeName="stop-color" values="#ff9ff3;#96ceb4;#ff6b6b;#ff9ff3" dur="6s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
+
+    <!-- Glassmorphism background gradients -->
+    <linearGradient id="glassGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:rgba(255,255,255,0.2);stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.15);stop-opacity:1"/>
+    </linearGradient>
+
+    <radialGradient id="glassRadial" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.45);stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.18);stop-opacity:1"/>
+    </radialGradient>
+
+    <!-- Blur filter for glassmorphism effect -->
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5"/>
+    </filter>
+
+    <!-- Backdrop blur simulation -->
+    <filter id="backdropBlur" x="0%" y="0%" width="100%" height="100%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
+      <feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.15 0"/>
+    </filter>
   </defs>
   
-  <!-- Full glassmorphism background card -->
-  <rect x="0" y="0" width="800" height="400" rx="20" ry="20" 
-        fill="rgba(248,248,255,0.15)" 
-        stroke="rgba(255,255,255,0.3)" 
-        stroke-width="1"/>
+  <!-- Multi-layered glassmorphism background -->
   
-  <!-- Additional subtle grey overlay for depth -->
-  <rect x="0" y="0" width="800" height="400" rx="20" ry="20" 
-        fill="rgba(240,240,245,0.1)" 
+  <!-- Base layer with subtle gradient -->
+  <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
+        fill="rgba(248,250,255,0.25)" 
         stroke="none"/>
+  
+  <!-- Primary glass layer -->
+  <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
+        fill="url(#glassGrad1)" 
+        stroke="rgba(255,255,255,0.35)" 
+        stroke-width="2"/>
+  
+  <!-- Secondary glass layer with radial gradient -->
+  <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
+        fill="url(#glassRadial)" 
+        stroke="none"
+        filter="url(#blur)"/>
+  
+  <!-- Subtle inner glow -->
+  <rect x="2" y="2" width="796" height="396" rx="22" ry="22" 
+        fill="none" 
+        stroke="rgba(255,255,255,0.4)" 
+        stroke-width="0.5"/>
+  
+  <!-- Floating glass elements for depth -->
+  <ellipse cx="150" cy="80" rx="40" ry="25" 
+           fill="rgba(255,255,255,0.12)" 
+           stroke="rgba(255,255,255,0.2)" 
+           stroke-width="0.5"
+           filter="url(#blur)">
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <ellipse cx="650" cy="320" rx="35" ry="20" 
+           fill="rgba(255,255,255,0.08)" 
+           stroke="rgba(255,255,255,0.15)" 
+           stroke-width="0.5"
+           filter="url(#blur)">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="5s" repeatCount="indefinite"/>
+  </ellipse>
   
   <!-- Centered and scaled tile container -->
   <g transform="translate(50, 100)">
     <!-- Top-left tile -->
-    <rect x="0" y="0" width="100" height="100" fill="url(#animGrad1)" rx="6" ry="6"/>
+    <rect x="0" y="0" width="100" height="100" fill="url(#animGrad1)" rx="8" ry="8" 
+          stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
     
     <!-- Top-right tile -->
-    <rect x="100" y="0" width="100" height="100" fill="url(#animGrad2)" rx="6" ry="6"/>
+    <rect x="100" y="0" width="100" height="100" fill="url(#animGrad2)" rx="8" ry="8"
+          stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
     
     <!-- Bottom-left tile -->
-    <rect x="0" y="100" width="100" height="100" fill="url(#animGrad3)" rx="6" ry="6"/>
+    <rect x="0" y="100" width="100" height="100" fill="url(#animGrad3)" rx="8" ry="8"
+          stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
     
     <!-- Bottom-right tile -->
-    <rect x="100" y="100" width="100" height="100" fill="url(#animGrad4)" rx="6" ry="6"/>
+    <rect x="100" y="100" width="100" height="100" fill="url(#animGrad4)" rx="8" ry="8"
+          stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
     
-    <!-- Subtle borders for definition -->
-    <line x1="100" y1="0" x2="100" y2="200" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-    <line x1="0" y1="100" x2="200" y2="100" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <!-- Glass overlay on tiles for integration -->
+    <rect x="0" y="0" width="200" height="200" rx="8" ry="8"
+          fill="rgba(255,255,255,0.08)" 
+          stroke="rgba(255,255,255,0.15)" 
+          stroke-width="1"/>
   </g>
   
-  <!-- Text Section -->
+  <!-- Text Section with glass backdrop -->
   <g transform="translate(300, 0)">
+    <!-- Text backdrop -->
+    <rect x="-20" y="120" width="480" height="140" rx="16" ry="16"
+          fill="rgba(255,255,255,0.06)" 
+          stroke="rgba(255,255,255,0.12)" 
+          stroke-width="1"
+          filter="url(#blur)"/>
+    
     <!-- Project text (H3/H4 size) -->
-    <text x="0" y="142" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#444" opacity="0.8">
+    <text x="0" y="142" font-family="Arial, sans-serif" font-size="24" font-weight="400" 
+          fill="#444" opacity="0.9"
+          filter="drop-shadow(0 1px 2px rgba(255,255,255,0.5))">
       Project
     </text>
     
     <!-- Hands-Free text (H1 size) -->
-    <text x="0" y="190" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#2c3e50">
+    <text x="0" y="190" font-family="Arial, sans-serif" font-size="48" font-weight="bold" 
+          fill="#2c3e50"
+          filter="drop-shadow(0 2px 4px rgba(255,255,255,0.3))">
       Hands-Free
       <animate attributeName="fill" values="#2c3e50;#e74c3c;#3498db;#2ecc71;#2c3e50" dur="8s" repeatCount="indefinite"/>
     </text>
     
     <!-- Gaming text (H1 size) -->
-    <text x="0" y="240" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#34495e">
+    <text x="0" y="240" font-family="Arial, sans-serif" font-size="48" font-weight="bold" 
+          fill="#34495e"
+          filter="drop-shadow(0 2px 4px rgba(255,255,255,0.3))">
       Gaming
       <animate attributeName="fill" values="#34495e;#9b59b6;#f39c12;#1abc9c;#34495e" dur="8s" repeatCount="indefinite"/>
     </text>
   </g>
+  
+  <!-- Final glass overlay for unified effect -->
+  <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
+        fill="rgba(255,255,255,0.08)" 
+        stroke="rgba(255,255,255,0.4)" 
+        stroke-width="1.5"/>
 </svg>
