@@ -1,4 +1,4 @@
-# AzimuthControl - Hand Gesture Recognition System
+# Hand Gesture Recognition System
 
 _"Can I play a game with just a single hand without touching anything physically?"_
 
