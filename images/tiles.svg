@@ -39,33 +39,14 @@
 
     <!-- Glassmorphism background gradients -->
     <linearGradient id="glassGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:rgba(255,255,255,0.7);stop-opacity:1"/>
-      <stop offset="50%" style="stop-color:rgba(255,255,255,0.45);stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:rgba(255,255,255,0.35);stop-opacity:1"/>
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:rgba(255,255,255,0.2);stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.15);stop-opacity:1"/>
     </linearGradient>
 
     <radialGradient id="glassRadial" cx="30%" cy="30%" r="70%">
-      <stop offset="0%" style="stop-color:rgba(255,255,255,0.6);stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:rgba(255,255,255,0.25);stop-opacity:1"/>
-    </radialGradient>
-
-    <!-- Strong center-to-edge fog gradient -->
-    <radialGradient id="fogGradient" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" style="stop-color:rgba(240,248,255,0.8);stop-opacity:1"/>
-      <stop offset="30%" style="stop-color:rgba(255,255,255,0.6);stop-opacity:1"/>
-      <stop offset="60%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:rgba(255,255,255,0.2);stop-opacity:1"/>
-    </radialGradient>
-
-    <!-- Multiple fog layers -->
-    <radialGradient id="fogLayer1" cx="40%" cy="40%" r="50%">
-      <stop offset="0%" style="stop-color:rgba(255,255,255,0.5);stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1"/>
-    </radialGradient>
-
-    <radialGradient id="fogLayer2" cx="60%" cy="60%" r="60%">
-      <stop offset="0%" style="stop-color:rgba(248,250,255,0.4);stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1"/>
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.45);stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.18);stop-opacity:1"/>
     </radialGradient>
 
     <!-- Blur filter for glassmorphism effect -->
@@ -80,34 +61,18 @@
     </filter>
   </defs>
   
-  <!-- Multi-layered bold glassmorphism background -->
+  <!-- Multi-layered glassmorphism background -->
   
-  <!-- Strong base layer -->
+  <!-- Base layer with subtle gradient -->
   <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
-        fill="rgba(240,248,255,0.6)" 
+        fill="rgba(248,250,255,0.25)" 
         stroke="none"/>
   
-  <!-- Primary bold glass layer -->
+  <!-- Primary glass layer -->
   <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
         fill="url(#glassGrad1)" 
-        stroke="rgba(255,255,255,0.7)" 
-        stroke-width="3"/>
-  
-  <!-- Center-to-edge fog layer -->
-  <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
-        fill="url(#fogGradient)" 
-        stroke="none"/>
-  
-  <!-- Multiple fog layers for depth -->
-  <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
-        fill="url(#fogLayer1)" 
-        stroke="none"
-        filter="url(#blur)"/>
-  
-  <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
-        fill="url(#fogLayer2)" 
-        stroke="none"
-        filter="url(#blur)"/>
+        stroke="rgba(255,255,255,0.35)" 
+        stroke-width="2"/>
   
   <!-- Secondary glass layer with radial gradient -->
   <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
@@ -115,35 +80,27 @@
         stroke="none"
         filter="url(#blur)"/>
   
-  <!-- Strong inner glow -->
+  <!-- Subtle inner glow -->
   <rect x="2" y="2" width="796" height="396" rx="22" ry="22" 
         fill="none" 
-        stroke="rgba(255,255,255,0.6)" 
-        stroke-width="1"/>
+        stroke="rgba(255,255,255,0.4)" 
+        stroke-width="0.5"/>
   
-  <!-- Enhanced floating glass elements -->
-  <ellipse cx="150" cy="80" rx="50" ry="30" 
-           fill="rgba(255,255,255,0.3)" 
-           stroke="rgba(255,255,255,0.4)" 
-           stroke-width="1"
+  <!-- Floating glass elements for depth -->
+  <ellipse cx="150" cy="80" rx="40" ry="25" 
+           fill="rgba(255,255,255,0.12)" 
+           stroke="rgba(255,255,255,0.2)" 
+           stroke-width="0.5"
            filter="url(#blur)">
-    <animate attributeName="opacity" values="0.4;0.7;0.4" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
   </ellipse>
   
-  <ellipse cx="650" cy="320" rx="45" ry="25" 
-           fill="rgba(255,255,255,0.25)" 
-           stroke="rgba(255,255,255,0.35)" 
-           stroke-width="1"
+  <ellipse cx="650" cy="320" rx="35" ry="20" 
+           fill="rgba(255,255,255,0.08)" 
+           stroke="rgba(255,255,255,0.15)" 
+           stroke-width="0.5"
            filter="url(#blur)">
-    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="5s" repeatCount="indefinite"/>
-  </ellipse>
-
-  <!-- Additional fog spots for stronger effect -->
-  <ellipse cx="400" cy="200" rx="80" ry="50" 
-           fill="rgba(248,250,255,0.4)" 
-           stroke="none"
-           filter="url(#blur)">
-    <animate attributeName="opacity" values="0.3;0.5;0.3" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="5s" repeatCount="indefinite"/>
   </ellipse>
   
   <!-- Centered and scaled tile container -->
@@ -166,36 +123,31 @@
     
     <!-- Glass overlay on tiles for integration -->
     <rect x="0" y="0" width="200" height="200" rx="8" ry="8"
-          fill="rgba(255,255,255,0.2)" 
-          stroke="rgba(255,255,255,0.35)" 
-          stroke-width="2"/>
+          fill="rgba(255,255,255,0.08)" 
+          stroke="rgba(255,255,255,0.15)" 
+          stroke-width="1"/>
   </g>
   
-  <!-- Text Section with stronger glass backdrop -->
+  <!-- Text Section with glass backdrop -->
   <g transform="translate(300, 0)">
-    <!-- Strong text backdrop -->
+    <!-- Text backdrop -->
     <rect x="-20" y="120" width="480" height="140" rx="16" ry="16"
-          fill="rgba(255,255,255,0.25)" 
-          stroke="rgba(255,255,255,0.4)" 
-          stroke-width="2"
+          fill="rgba(255,255,255,0.06)" 
+          stroke="rgba(255,255,255,0.12)" 
+          stroke-width="1"
           filter="url(#blur)"/>
-    
-    <!-- Additional backdrop layer for strength -->
-    <rect x="-15" y="125" width="470" height="130" rx="12" ry="12"
-          fill="rgba(248,250,255,0.15)" 
-          stroke="none"/>
     
     <!-- Project text (H3/H4 size) -->
     <text x="0" y="142" font-family="Arial, sans-serif" font-size="24" font-weight="400" 
-          fill="#2c3e50" opacity="0.95"
-          filter="drop-shadow(0 1px 3px rgba(255,255,255,0.8))">
+          fill="#444" opacity="0.9"
+          filter="drop-shadow(0 1px 2px rgba(255,255,255,0.5))">
       Project
     </text>
     
     <!-- Hands-Free text (H1 size) -->
     <text x="0" y="190" font-family="Arial, sans-serif" font-size="48" font-weight="bold" 
           fill="#2c3e50"
-          filter="drop-shadow(0 2px 6px rgba(255,255,255,0.6))">
+          filter="drop-shadow(0 2px 4px rgba(255,255,255,0.3))">
       Hands-Free
       <animate attributeName="fill" values="#2c3e50;#e74c3c;#3498db;#2ecc71;#2c3e50" dur="8s" repeatCount="indefinite"/>
     </text>
@@ -203,15 +155,15 @@
     <!-- Gaming text (H1 size) -->
     <text x="0" y="240" font-family="Arial, sans-serif" font-size="48" font-weight="bold" 
           fill="#34495e"
-          filter="drop-shadow(0 2px 6px rgba(255,255,255,0.6))">
+          filter="drop-shadow(0 2px 4px rgba(255,255,255,0.3))">
       Gaming
       <animate attributeName="fill" values="#34495e;#9b59b6;#f39c12;#1abc9c;#34495e" dur="8s" repeatCount="indefinite"/>
     </text>
   </g>
   
-  <!-- Final strong glass overlay -->
+  <!-- Final glass overlay for unified effect -->
   <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
-        fill="rgba(255,255,255,0.15)" 
-        stroke="rgba(255,255,255,0.6)" 
-        stroke-width="2.5"/>
+        fill="rgba(255,255,255,0.08)" 
+        stroke="rgba(255,255,255,0.4)" 
+        stroke-width="1.5"/>
 </svg>
