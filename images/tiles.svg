@@ -1,29 +1,5 @@
 <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Gradient for top-left tile -->
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Gradient for top-right tile -->
-    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Gradient for bottom-left tile -->
-    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#96ceb4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#feca57;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Gradient for bottom-right tile -->
-    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#feca57;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff9ff3;stop-opacity:1" />
-    </linearGradient>
-    
     <!-- Animated gradients for smooth transitions -->
     <linearGradient id="animGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1">
@@ -59,23 +35,19 @@
       <stop offset="100%" style="stop-color:#ff9ff3;stop-opacity:1">
         <animate attributeName="stop-color" values="#ff9ff3;#96ceb4;#ff6b6b;#ff9ff3" dur="6s" repeatCount="indefinite"/>
       </stop>
-    <!-- Smoky card backgrounds with blur effect -->
-    <defs>
-      <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
-      </filter>
-      <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-        <feOffset dx="2" dy="3" result="offset"/>
-        <feComponentTransfer>
-          <feFuncA type="linear" slope="0.3"/>
-        </feComponentTransfer>
-        <feMerge> 
-          <feMergeNode/>
-          <feMergeNode in="SourceGraphic"/> 
-        </feMerge>
-      </filter>
-    </defs>
+    </linearGradient>
+  </defs>
+  
+  <!-- Full glassmorphism background card -->
+  <rect x="0" y="0" width="800" height="400" rx="20" ry="20" 
+        fill="rgba(248,248,255,0.15)" 
+        stroke="rgba(255,255,255,0.3)" 
+        stroke-width="1"/>
+  
+  <!-- Additional subtle grey overlay for depth -->
+  <rect x="0" y="0" width="800" height="400" rx="20" ry="20" 
+        fill="rgba(240,240,245,0.1)" 
+        stroke="none"/>
   
   <!-- Centered and scaled tile container -->
   <g transform="translate(50, 100)">
@@ -98,44 +70,19 @@
   
   <!-- Text Section -->
   <g transform="translate(300, 0)">
-    <!-- Smoky card background for "Project" -->
-    <rect x="-15" y="120" width="120" height="35" rx="8" ry="8" 
-          fill="rgba(255,255,255,0.15)" 
-          stroke="rgba(255,255,255,0.25)" 
-          stroke-width="1"
-          filter="url(#softShadow)"/>
-    
-    <!-- Smoky card background for "Hands-Free" -->
-    <rect x="-20" y="155" width="280" height="55" rx="12" ry="12" 
-          fill="rgba(255,255,255,0.2)" 
-          stroke="rgba(255,255,255,0.3)" 
-          stroke-width="1"
-          filter="url(#softShadow)">
-      <animate attributeName="fill" values="rgba(255,255,255,0.2);rgba(240,248,255,0.25);rgba(248,240,255,0.25);rgba(240,255,248,0.25);rgba(255,255,255,0.2)" dur="8s" repeatCount="indefinite"/>
-    </rect>
-    
-    <!-- Smoky card background for "Gaming" -->
-    <rect x="-20" y="205" width="180" height="55" rx="12" ry="12" 
-          fill="rgba(255,255,255,0.2)" 
-          stroke="rgba(255,255,255,0.3)" 
-          stroke-width="1"
-          filter="url(#softShadow)">
-      <animate attributeName="fill" values="rgba(255,255,255,0.2);rgba(255,240,248,0.25);rgba(255,248,240,0.25);rgba(248,255,240,0.25);rgba(255,255,255,0.2)" dur="8s" repeatCount="indefinite"/>
-    </rect>
-    
     <!-- Project text (H3/H4 size) -->
-    <text x="0" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#333" opacity="0.9">
+    <text x="0" y="142" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#444" opacity="0.8">
       Project
     </text>
     
     <!-- Hands-Free text (H1 size) -->
-    <text x="0" y="185" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#2c3e50">
+    <text x="0" y="190" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#2c3e50">
       Hands-Free
       <animate attributeName="fill" values="#2c3e50;#e74c3c;#3498db;#2ecc71;#2c3e50" dur="8s" repeatCount="indefinite"/>
     </text>
     
     <!-- Gaming text (H1 size) -->
-    <text x="0" y="230" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#34495e">
+    <text x="0" y="240" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#34495e">
       Gaming
       <animate attributeName="fill" values="#34495e;#9b59b6;#f39c12;#1abc9c;#34495e" dur="8s" repeatCount="indefinite"/>
     </text>
