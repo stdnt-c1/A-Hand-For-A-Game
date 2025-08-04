@@ -3,7 +3,7 @@
 
 > **Research Objective**: Investigating the feasibility of single-hand gesture-based gaming controls without physical input devices.
 
-AzimuthControl is an experimental computer vision system that enables real-time hand gesture recognition for gaming applications. The system utilizes MediaPipe for hand landmark detection and implements custom gesture interpretation algorithms.
+HandsFree-Gaming is an experimental computer vision system that enables real-time hand gesture recognition for gaming applications. The system utilizes MediaPipe for hand landmark detection and implements custom gesture interpretation algorithms.
 
 > [!WARNING]
 > This is a research prototype with author-specific calibrations. It is not intended for general accessibility use or production deployment.
