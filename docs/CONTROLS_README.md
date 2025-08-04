@@ -1,6 +1,6 @@
 # Gesture Control Specifications
 
-This document defines the hand gesture recognition system for the AzimuthControl project. All gestures are calibrated for right-hand detection only and are designed for gaming control applications.
+This document defines the hand gesture recognition system for the HandsFree-Gaming project. All gestures are calibrated for right-hand detection only and are designed for gaming control applications.
 
 > [!WARNING]
 > This gesture recognition system was developed as a personal research project. The gestures and thresholds are specifically calibrated for the original developer's hand anatomy, camera setup, and hardware configuration. Performance may vary significantly for other users.
