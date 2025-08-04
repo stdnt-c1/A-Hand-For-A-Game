@@ -1,34 +1,20 @@
-# Gesture Definitions (Revised)
-This document defines a set of hand gestures for the right hand only, used to control actions, camera movements, character movements, and navigation in an interactive system. Gestures are detected based on key points (fingertips, metacarpal points, wrist), regions of interest (ROIs), and a 3-axis formation. Rules are designed to be non-conflicting, robust to tracking noise, and clear for implementation, with explicit details on which controls can coexist and which are mutually exclusive.
+# Gesture Control Specifications
 
----
+This document defines the hand gesture recognition system for the AzimuthControl project. All gestures are calibrated for right-hand detection only and are designed for gaming control applications.
 
-## IMPORTANT PROJECT DISCLAIMERS
+> [!WARNING]
+> This gesture recognition system was developed as a personal research project. The gestures and thresholds are specifically calibrated for the original developer's hand anatomy, camera setup, and hardware configuration. Performance may vary significantly for other users.
 
-> **⚠️ PERSONAL PROJECT NOTICE:**
-> This gesture recognition system was developed as a personal exploration project to answer the question: "Can I play a game with just a single hand without touching anything physically?" The gestures and thresholds are specifically calibrated for the original developer's hand anatomy, camera setup, and comfort preferences. Results may vary significantly for other users.
-> **THIS PROJECT IS CAMERA-DEPENDENT. THERE ARE NO EXTRA FEATURES OR INPUT (E.G. IMU, RANGE FINDER, ETC.) AVAILABLE. THIS PROJECT CHALLENGES THE ATTEMPT OF TRANSLATING 3D GESTURES INTO 2D INPUT. MEANING ALL CALCULATIONS AND FORMS/GESTURES SELECTED ARE CRUCIAL.**
+> [!IMPORTANT]
+> This system relies solely on camera input for 3D gesture translation to 2D input commands. No additional sensors (IMU, range finder, etc.) are available. All calculations and gesture selections are critical for system functionality.
 
-> **⚠️ NOT DESIGNED FOR ACCESSIBILITY:**
-> While this system may incidentally work for some users with disabilities, it was **NOT** specifically designed or tested as an accessibility solution. The complex gesture requirements and precision needed may actually create barriers rather than remove them. Users seeking accessibility solutions should consider purpose-built assistive technologies.
+## Technical Limitations
 
-> **⚠️ EXPERIMENTAL NATURE:**
-> This is an experimental proof-of-concept. The system may have inconsistent performance, false positives/negatives, and may require significant calibration for different users, environments, or hardware setups.
+> [!NOTE]
+> **Camera Dependency**: Performance depends heavily on camera quality, lighting conditions, and positioning. Requires consistent camera angle and distance for reliable detection.
 
-## TECHNICAL LIMITATIONS AND WARNINGS
-
-> **📷 CAMERA DEPENDENCY:**
-> - Performance heavily depends on camera quality, lighting conditions, and positioning
-> - Requires consistent camera angle and distance for reliable detection
-> - May fail in low-light conditions, direct sunlight, or with background hand-like objects
-> - Webcam quality and FPS directly impact gesture recognition accuracy
-
-> **🤚 HAND ANATOMY VARIATIONS:**
-> - Gesture definitions assume specific finger length ratios and joint flexibility
-> - May not work for users with:
->   - Different hand proportions
->   - Limited finger mobility or joint conditions
->   - Significant scarring or missing digits
+> [!CAUTION]
+> **Hand Anatomy Variations**: Gesture definitions assume specific finger length ratios and joint flexibility. May not function properly for users with different hand proportions or limited finger mobility.
 >   - Hand tremors or involuntary movements
 > - Children's hands may be too small for accurate detection of defined distances
 

@@ -96,6 +96,7 @@ perf_data/
 err-lgg-t/
 debug/
 .debug/
+copilot-instructions.md
 
 # Temporary files
 temp.win-amd64-cpython-311/

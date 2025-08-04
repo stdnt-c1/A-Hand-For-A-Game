@@ -1,6 +1,9 @@
 # Environment Setup Guide
 
-This document provides detailed instructions for setting up the complete development and runtime environment for AzimuthControl.
+This document provides detailed instructions for setting up the development and runtime environment for AzimuthControl.
+
+> [!WARNING]
+> This setup guide is optimized for the original author's development environment. Configuration may need adjustment for different hardware or system configurations.
 
 ## System Requirements
 
@@ -9,11 +12,17 @@ This document provides detailed instructions for setting up the complete develop
 - **Linux** (Ubuntu 20.04+ recommended)
 - **macOS** (Limited support)
 
+> [!IMPORTANT]
+> Windows is the primary supported platform. Linux and macOS support is experimental and may require additional configuration.
+
 ### Hardware Requirements
 - **CPU**: Intel i5 or AMD Ryzen 5 equivalent or better
 - **RAM**: Minimum 8GB, 16GB recommended
 - **Camera**: USB webcam or integrated camera with 720p+ resolution
 - **Storage**: 2GB free space for installation and dependencies
+
+> [!TIP]
+> For optimal performance, use a dedicated USB webcam with good lighting conditions.
 
 ## Core Dependencies
 

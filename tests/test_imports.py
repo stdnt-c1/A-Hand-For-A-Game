@@ -6,10 +6,9 @@ Import validation test script for AzimuthControl
 import sys
 import os
 
-# Add src to Python path
-project_root = os.path.dirname(os.path.abspath(__file__))
-src_path = os.path.join(project_root, 'src')
-sys.path.insert(0, src_path)
+# Add project root to Python path
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
 
 def test_imports():
     """Test all critical imports"""

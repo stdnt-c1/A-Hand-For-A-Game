@@ -1,6 +1,6 @@
 import cv2
 import mediapipe as mp
-from utils import HandLandmark
+from .geometry_utils import HandLandmark
 
 def draw_hand_landmarks(image, landmarks, palm_bbox, mp_hands, colors):
     h, w, _ = image.shape

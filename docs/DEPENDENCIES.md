@@ -4,6 +4,9 @@
 
 All Python dependencies are managed through `requirements.txt`:
 
+> [!NOTE]
+> Version numbers represent minimum requirements. Newer versions are generally compatible unless otherwise noted.
+
 ```
 opencv-python>=4.8.0
 mediapipe>=0.10.0
@@ -28,6 +31,9 @@ psutil>=5.9.0
 #### Performance & Optimization
 - **numba (0.57.0+)**: Just-in-time compilation for performance-critical functions
 - **psutil (5.9.0+)**: System resource monitoring (CPU, memory, processes)
+
+> [!WARNING]
+> MediaPipe version compatibility is critical. Use the specified version or newer to ensure proper hand landmark detection functionality.
 
 ## System-Level Dependencies
 
