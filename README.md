@@ -211,10 +211,33 @@ The system includes built-in performance monitoring:
 
 ## Contributing
 
-1. Follow the established project structure
-2. Add comprehensive tests for new features
-3. Update documentation accordingly
-4. Ensure performance requirements are maintained
+> [!IMPORTANT]
+> A Hand For A Game is currently a personal research project with author-specific calibrations. We are not accepting direct code contributions at this time.
+
+We welcome community input through:
+- **Suggestions and feedback** via GitHub Issues
+- **Research collaboration** discussions
+- **Documentation improvements** recommendations
+- **Bug reports** and system feedback
+
+For detailed contribution guidelines, please read our [Contributing Guide](CONTRIBUTING.md).
+
+### Quick Guidelines
+
+- Submit suggestions through GitHub Issues
+- Maintain professional and constructive communication
+- Focus on actionable, technically feasible improvements
+- Respect the project's research-focused scope
+
+## Documentation
+
+Comprehensive documentation is available in the `/docs` directory:
+
+- **[Architecture Guide](docs/ARCHITECTURE_GUIDE.md)**: System design and component overview
+- **[Environment Setup](docs/ENVIRONMENT_SETUP.md)**: Development environment configuration
+- **[Performance Guide](docs/PERFORMANCE_GUIDE.md)**: Optimization strategies and benchmarks
+- **[Controls Documentation](docs/CONTROLS_README.md)**: Gesture definitions and configurations
+- **[Dependencies](docs/DEPENDENCIES.md)**: Package requirements and installation
 
 ## License
 
