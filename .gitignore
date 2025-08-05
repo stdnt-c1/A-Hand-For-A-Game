@@ -97,6 +97,7 @@ err-lgg-t/
 debug/
 .debug/
 copilot-instructions.md
+push_message.txt
 
 # Temporary files
 temp.win-amd64-cpython-311/
