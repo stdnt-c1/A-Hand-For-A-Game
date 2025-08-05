@@ -148,7 +148,7 @@
     <text x="0" y="190" font-family="Arial, sans-serif" font-size="48" font-weight="bold" 
           fill="#2c3e50"
           filter="drop-shadow(0 2px 4px rgba(255,255,255,0.3))">
-      Hands-Free
+      A Hand
       <animate attributeName="fill" values="#2c3e50;#e74c3c;#3498db;#2ecc71;#2c3e50" dur="8s" repeatCount="indefinite"/>
     </text>
     
@@ -156,7 +156,7 @@
     <text x="0" y="240" font-family="Arial, sans-serif" font-size="48" font-weight="bold" 
           fill="#34495e"
           filter="drop-shadow(0 2px 4px rgba(255,255,255,0.3))">
-      Gaming
+      For A Game
       <animate attributeName="fill" values="#34495e;#9b59b6;#f39c12;#1abc9c;#34495e" dur="8s" repeatCount="indefinite"/>
     </text>
   </g>
