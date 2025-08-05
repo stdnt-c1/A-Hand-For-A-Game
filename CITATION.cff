@@ -1,0 +1,153 @@
+# Citation File Format (CFF) for A Hand For A Game
+# This file provides standardized citation information for academic research
+# For more information about CFF: https://citation-file-format.github.io/
+
+cff-version: 1.2.0
+message: "If you use this software in your research, please cite it as below."
+type: software
+title: "A Hand For A Game: Real-time Hand Gesture Recognition for Gaming Applications"
+abstract: >-
+  An experimental computer vision system that enables real-time hand gesture 
+  recognition for gaming applications. The system utilizes MediaPipe for hand 
+  landmark detection and implements custom gesture interpretation algorithms 
+  optimized for Windows gaming environments. This is a personal research 
+  project with author-specific calibrations and is not intended for general 
+  accessibility use or production deployment.
+
+authors:
+  - family-names: ""
+    given-names: "M. Bilal Maulida"
+    orcid: "https://orcid.org/0009-0005-2826-8169" 
+    affiliation: "Independent Researcher"
+
+repository-code: "https://github.com/stdnt-c1/A-Hand-For-A-Game"
+url: "https://github.com/stdnt-c1/A-Hand-For-A-Game"
+license: AGPL-3.0-or-later
+license-url: "https://www.gnu.org/licenses/agpl-3.0.html"
+
+version: "1.0.0"
+date-released: "2025-08-05"
+
+keywords:
+  - "computer vision"
+  - "hand gesture recognition"
+  - "gaming"
+  - "accessibility"
+  - "MediaPipe"
+  - "real-time processing"
+  - "Python"
+  - "Windows"
+  - "machine learning"
+  - "human-computer interaction"
+
+# Research and academic context
+research-context:
+  research-question: "Can single-hand gesture recognition provide viable gaming control without physical input devices?"
+  methodology: "Computer vision-based gesture detection using MediaPipe landmarks with custom interpretation algorithms"
+  target-environment: "Windows gaming applications with real-time performance requirements"
+  limitations: "Author-specific calibration, right-hand detection only, hardware-dependent performance"
+
+# Warning for academic use
+academic-warning: >-
+  IMPORTANT: This software is a personal research prototype with author-specific 
+  calibrations. It is NOT intended for general accessibility use, production 
+  deployment, or as a basis for accessibility solutions. Performance and accuracy 
+  may vary significantly with different users, hardware configurations, or 
+  environmental conditions. Use in academic research should acknowledge these 
+  limitations and focus on the methodological approaches rather than direct 
+  application of the system.
+
+# Preferred citation formats
+preferred-citation:
+  type: software
+  title: "A Hand For A Game: Real-time Hand Gesture Recognition for Gaming Applications"
+  authors:
+    - family-names: "Maulida"
+      given-names: "M. Bilal"
+  year: 2025
+  url: "https://github.com/stdnt-c1/A-Hand-For-A-Game"
+  notes: "Personal research project - Author-specific calibration"
+
+# Alternative citation for conference/journal papers (if applicable)
+references:
+  - type: software
+    title: "A Hand For A Game: Experimental Single-Hand Gesture Recognition System"
+    authors:
+      - family-names: "Maulida"
+        given-names: "M. Bilal"
+    year: 2025
+    repository-code: "https://github.com/stdnt-c1/A-Hand-For-A-Game"
+    license: "AGPL-3.0-or-later"
+    notes: "Research prototype with author-specific calibrations"
+
+# Contact information for research collaboration
+contact:
+  - name: "M. Bilal Maulida"
+    email: "contact-via-github-issues"  # Encourage GitHub Issues for contact
+    note: "Please use GitHub Issues for research collaboration inquiries"
+
+# Technical specifications for reproducibility
+technical-info:
+  programming-language: "Python"
+  runtime-environment: "Windows 11/12"
+  dependencies:
+    - "MediaPipe >= 0.10.0"
+    - "OpenCV >= 4.8.0"
+    - "NumPy >= 1.24.0"
+    - "PyQt5 >= 5.15.0"
+  hardware-requirements:
+    - "Webcam (720p minimum, 1080p recommended)"
+    - "Windows 11/12 operating system"
+    - "Minimum 8GB RAM"
+    - "GPU acceleration recommended"
+
+# Research ethics and limitations
+research-ethics:
+  data-collection: "No personal data collected or stored"
+  privacy: "All processing performed locally"
+  bias-considerations: "System calibrated for single user (author) - results may not generalize"
+  ethical-use: "Intended for research and personal use only"
+
+# Version history for academic tracking
+version-history:
+  - version: "1.0.0"
+    date: "2025-08-05"
+    description: "Initial research prototype release"
+    significance: "Baseline implementation with author-specific calibrations"
+
+# Related work and acknowledgments
+acknowledgments: >-
+  This project builds upon MediaPipe (Google) for hand landmark detection. 
+  The gesture interpretation algorithms and gaming integration are original 
+  contributions by the author. No external funding or institutional support 
+  was received for this research.
+
+# Academic disciplines
+academic-disciplines:
+  - "Computer Science"
+  - "Human-Computer Interaction"
+  - "Computer Vision"
+  - "Accessibility Technology"
+  - "Game Studies"
+  - "Machine Learning"
+
+# Research output type
+research-output-type: "software"
+research-maturity: "prototype"
+research-scope: "proof-of-concept"
+
+# Reproducibility information
+reproducibility:
+  code-availability: "Full source code available under AGPL-3.0"
+  data-availability: "No datasets - real-time camera input only"
+  documentation: "Comprehensive technical documentation provided"
+  hardware-specificity: "Optimized for author's specific hardware configuration"
+  generalizability: "Limited - requires individual calibration for different users"
+
+# Future research directions
+future-research:
+  - "Multi-user calibration systems"
+  - "Cross-platform compatibility"
+  - "Enhanced gesture vocabulary"
+  - "Performance optimization techniques"
+  - "Accessibility applications"
