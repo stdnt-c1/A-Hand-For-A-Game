@@ -1,5 +1,40 @@
-# Hand Gesture Recognition System
-<img src="images/tiles.svg" alt="Description" style="width: 100%; max-width: 600px; height: auto;">
+# A Hand For A Game
+## Real-time Hand Gesture Recognition for Gaming Applications
+
+<img src="images/tiles.svg" alt="A Hand For A Game Header" style="width: 100%; max-width: 600px; height: auto;">
+
+<!-- Shields/Badges -->
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
+[![Platform](https://img.shields.io/badge/Platform-Windows_11%2F12-lightgrey.svg)](https://www.microsoft.com/windows)
+[![Research](https://img.shields.io/badge/Type-Research_Prototype-orange.svg)](#research-disclaimer)
+[![Personal](https://img.shields.io/badge/Scope-Personal_Project-red.svg)](#research-disclaimer)
+[![DOI](https://img.shields.io/badge/DOI-Cite_This_Software-blue.svg)](CITATION.cff)
+
+### Author Information
+**M. Bilal Maulida** - *Aspiring Independent Researcher*  
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0005--2826--8169-green.svg)](https://orcid.org/0009-0005-2826-8169)
+
+---
+
+## Research Disclaimer
+
+> [!CAUTION]
+> **Personal Research Project**: This is a **personal, non-profit, proof-of-concept research prototype**. It is NOT intended for production use, commercial deployment, or as an official accessibility solution.
+
+> [!WARNING]
+> **Citation and Academic Use**: If citing this work, please acknowledge its **non-production, personal research nature**. This project represents individual exploration and should not be referenced as an official or validated accessibility technology.
+
+> [!IMPORTANT]
+> **Research Scope**: This project is:
+> - ✅ **Personal research and experimentation**
+> - ✅ **Proof-of-concept demonstration**
+> - ✅ **Author-specific calibrated system**
+> - ❌ **NOT a production-ready solution**
+> - ❌ **NOT an official accessibility tool**
+> - ❌ **NOT intended for general public use**
+
+---
 
 > **Research Objective**: Investigating the feasibility of single-hand gesture-based gaming controls without physical input devices.
 
@@ -10,6 +45,26 @@ A Hand For A Game is an experimental computer vision system that enables real-ti
 
 > [!NOTE]
 > The system is optimized for the original author's hand anatomy and hardware configuration. Performance and accuracy may vary significantly with different users or setups.
+
+## Citation and Academic Use
+
+> [!IMPORTANT]
+> **For Academic Citation**: This project includes a [CITATION.cff](CITATION.cff) file for proper academic attribution. Please review the research disclaimers before citing.
+
+If you use this software in academic research, please cite it as:
+
+```bibtex
+@software{a_hand_for_a_game_2025,
+  title={A Hand For A Game: Real-time Hand Gesture Recognition for Gaming Applications},
+  author={Maulida, M. Bilal},
+  year={2025},
+  url={https://github.com/stdnt-c1/A-Hand-For-A-Game},
+  note={Personal research project - Author-specific calibration}
+}
+```
+
+> [!CAUTION]
+> **Research Ethics**: When referencing this work, please emphasize its **personal research nature** and **author-specific limitations**. Do not present it as a validated accessibility solution or production-ready system.
 
 ## Quick Start
 
@@ -238,6 +293,39 @@ Comprehensive documentation is available in the `/docs` directory:
 - **[Performance Guide](docs/PERFORMANCE_GUIDE.md)**: Optimization strategies and benchmarks
 - **[Controls Documentation](docs/CONTROLS_README.md)**: Gesture definitions and configurations
 - **[Dependencies](docs/DEPENDENCIES.md)**: Package requirements and installation
+
+## Research Status and Limitations
+
+> [!WARNING]
+> **Non-Production Status**: This software is a **personal research prototype** and should be treated as such in all contexts.
+
+### Project Classification
+- **Type**: Personal research and experimentation
+- **Status**: Proof-of-concept, author-calibrated
+- **Scope**: Individual learning and exploration
+- **Intent**: Non-commercial, non-production
+
+### Research Limitations
+> [!CAUTION]
+> **Author-Specific Calibration**: The system is specifically tuned for the original author's:
+> - Hand anatomy and gesture patterns
+> - Hardware configuration (Windows 11, specific webcam)
+> - Environmental conditions (lighting, background)
+> - Personal use cases and preferences
+
+### Academic and Research Use Guidelines
+- **Citation Required**: Use provided [CITATION.cff](CITATION.cff) file
+- **Context Disclaimer**: Always mention personal research nature
+- **Limitation Acknowledgment**: Emphasize author-specific calibrations
+- **No Production Claims**: Do not reference as production-ready technology
+
+### Ethical Considerations
+> [!IMPORTANT]
+> **Responsible Use**: This project should not be:
+> - Presented as an official accessibility solution
+> - Used as a basis for commercial products without significant modification
+> - Referenced without acknowledging its experimental nature
+> - Considered a validated or peer-reviewed system
 
 ## License
 
