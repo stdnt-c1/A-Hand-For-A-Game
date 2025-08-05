@@ -49,7 +49,7 @@ A Hand For A Game is an experimental computer vision system that enables real-ti
 ## Citation and Academic Use
 
 > [!IMPORTANT]
-> **For Academic Citation**: This project includes a [CITATION.cff](CITATION.cff) file for proper academic attribution. Please review the research disclaimers before citing.
+> **For Academic Citation**: This project includes a [CITATION.cff](CITATION.cff) file for proper academic attribution. A comprehensive [BibTeX file](citation.bib) is also available with multiple citation formats. Please review the research disclaimers before citing.
 
 If you use this software in academic research, please cite it as:
 
@@ -62,6 +62,9 @@ If you use this software in academic research, please cite it as:
   note={Personal research project - Author-specific calibration}
 }
 ```
+
+> [!TIP]
+> **Multiple Citation Formats**: The [citation.bib](citation.bib) file contains additional citation formats including `@misc`, `@techreport`, and `@inproceedings` styles for different academic contexts.
 
 > [!CAUTION]
 > **Research Ethics**: When referencing this work, please emphasize its **personal research nature** and **author-specific limitations**. Do not present it as a validated accessibility solution or production-ready system.
