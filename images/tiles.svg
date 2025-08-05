@@ -1,169 +1,120 @@
 <svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Animated gradients for tiles -->
+    <!-- Animated gradients for tiles with brighter color palette -->
     <linearGradient id="animGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1">
-        <animate attributeName="stop-color" values="#ff6b6b;#4ecdc4;#45b7d1;#ff6b6b" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="stop-color" values="#ff6b6b;#4ecdc4;#45b7d1;#7db46c;#ff6b6b" dur="8s" repeatCount="indefinite"/>
       </stop>
       <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1">
-        <animate attributeName="stop-color" values="#4ecdc4;#45b7d1;#96ceb4;#4ecdc4" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="stop-color" values="#4ecdc4;#45b7d1;#96ceb4;#feca57;#4ecdc4" dur="8s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
     
     <linearGradient id="animGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1">
-        <animate attributeName="stop-color" values="#4ecdc4;#45b7d1;#ff9ff3;#4ecdc4" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="stop-color" values="#4ecdc4;#45b7d1;#ff9ff3;#feca57;#4ecdc4" dur="8s" repeatCount="indefinite"/>
       </stop>
       <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:1">
-        <animate attributeName="stop-color" values="#45b7d1;#ff9ff3;#feca57;#45b7d1" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="stop-color" values="#45b7d1;#ff9ff3;#feca57;#96ceb4;#45b7d1" dur="8s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
     
     <linearGradient id="animGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#96ceb4;stop-opacity:1">
-        <animate attributeName="stop-color" values="#96ceb4;#feca57;#ff6b6b;#96ceb4" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="stop-color" values="#96ceb4;#feca57;#ff8a80;#7db46c;#96ceb4" dur="8s" repeatCount="indefinite"/>
       </stop>
       <stop offset="100%" style="stop-color:#feca57;stop-opacity:1">
-        <animate attributeName="stop-color" values="#feca57;#ff9ff3;#4ecdc4;#feca57" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="stop-color" values="#feca57;#ff9ff3;#4ecdc4;#74b9ff;#feca57" dur="8s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
     
     <linearGradient id="animGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#feca57;stop-opacity:1">
-        <animate attributeName="stop-color" values="#feca57;#ff9ff3;#45b7d1;#feca57" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="stop-color" values="#feca57;#ff9ff3;#74b9ff;#6c7b7f;#feca57" dur="8s" repeatCount="indefinite"/>
       </stop>
       <stop offset="100%" style="stop-color:#ff9ff3;stop-opacity:1">
-        <animate attributeName="stop-color" values="#ff9ff3;#96ceb4;#ff6b6b;#ff9ff3" dur="6s" repeatCount="indefinite"/>
+        <animate attributeName="stop-color" values="#ff9ff3;#96ceb4;#ff8a80;#45b7d1;#ff9ff3" dur="8s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
 
-    <!-- Glassmorphism background gradients -->
-    <linearGradient id="glassGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1"/>
-      <stop offset="50%" style="stop-color:rgba(255,255,255,0.2);stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:rgba(255,255,255,0.15);stop-opacity:1"/>
+    <!-- Gradients for decorative line elements -->
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1">
+        <animate attributeName="stop-color" values="#4ecdc4;#45b7d1;#96ceb4;#feca57;#4ecdc4" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:1">
+        <animate attributeName="stop-color" values="#45b7d1;#96ceb4;#feca57;#ff9ff3;#45b7d1" dur="6s" repeatCount="indefinite"/>
+      </stop>
     </linearGradient>
 
-    <radialGradient id="glassRadial" cx="30%" cy="30%" r="70%">
-      <stop offset="0%" style="stop-color:rgba(255,255,255,0.45);stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:rgba(255,255,255,0.18);stop-opacity:1"/>
-    </radialGradient>
-
-    <!-- Blur filter for glassmorphism effect -->
-    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5"/>
-    </filter>
-
-    <!-- Backdrop blur simulation -->
-    <filter id="backdropBlur" x="0%" y="0%" width="100%" height="100%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
-      <feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.15 0"/>
-    </filter>
+    <linearGradient id="diamondGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1">
+        <animate attributeName="stop-color" values="#2c3e50;#e74c3c;#3498db;#2ecc71;#2c3e50" dur="5s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#34495e;stop-opacity:1">
+        <animate attributeName="stop-color" values="#34495e;#9b59b6;#f39c12;#1abc9c;#34495e" dur="5s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
   </defs>
   
-  <!-- Multi-layered glassmorphism background -->
-  
-  <!-- Base layer with subtle gradient -->
+  <!-- Clean rounded background -->
   <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
-        fill="rgba(248,250,255,0.25)" 
-        stroke="none"/>
-  
-  <!-- Primary glass layer -->
-  <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
-        fill="url(#glassGrad1)" 
-        stroke="rgba(255,255,255,0.35)" 
-        stroke-width="2"/>
-  
-  <!-- Secondary glass layer with radial gradient -->
-  <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
-        fill="url(#glassRadial)" 
-        stroke="none"
-        filter="url(#blur)"/>
-  
-  <!-- Subtle inner glow -->
-  <rect x="2" y="2" width="796" height="396" rx="22" ry="22" 
-        fill="none" 
-        stroke="rgba(255,255,255,0.4)" 
-        stroke-width="0.5"/>
-  
-  <!-- Floating glass elements for depth -->
-  <ellipse cx="150" cy="80" rx="40" ry="25" 
-           fill="rgba(255,255,255,0.12)" 
-           stroke="rgba(255,255,255,0.2)" 
-           stroke-width="0.5"
-           filter="url(#blur)">
-    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
-  </ellipse>
-  
-  <ellipse cx="650" cy="320" rx="35" ry="20" 
-           fill="rgba(255,255,255,0.08)" 
-           stroke="rgba(255,255,255,0.15)" 
-           stroke-width="0.5"
-           filter="url(#blur)">
-    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="5s" repeatCount="indefinite"/>
-  </ellipse>
+        fill="#f8f9fa" 
+        stroke="#e9ecef" 
+        stroke-width="1"/>
   
   <!-- Centered and scaled tile container -->
   <g transform="translate(50, 100)">
     <!-- Top-left tile -->
-    <rect x="0" y="0" width="100" height="100" fill="url(#animGrad1)" rx="8" ry="8" 
-          stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <rect x="0" y="0" width="100" height="100" fill="url(#animGrad1)" rx="12" ry="12" 
+          stroke="#ffffff" stroke-width="2"/>
     
     <!-- Top-right tile -->
-    <rect x="100" y="0" width="100" height="100" fill="url(#animGrad2)" rx="8" ry="8"
-          stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <rect x="100" y="0" width="100" height="100" fill="url(#animGrad2)" rx="12" ry="12"
+          stroke="#ffffff" stroke-width="2"/>
     
     <!-- Bottom-left tile -->
-    <rect x="0" y="100" width="100" height="100" fill="url(#animGrad3)" rx="8" ry="8"
-          stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <rect x="0" y="100" width="100" height="100" fill="url(#animGrad3)" rx="12" ry="12"
+          stroke="#ffffff" stroke-width="2"/>
     
     <!-- Bottom-right tile -->
-    <rect x="100" y="100" width="100" height="100" fill="url(#animGrad4)" rx="8" ry="8"
-          stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-    
-    <!-- Glass overlay on tiles for integration -->
-    <rect x="0" y="0" width="200" height="200" rx="8" ry="8"
-          fill="rgba(255,255,255,0.08)" 
-          stroke="rgba(255,255,255,0.15)" 
-          stroke-width="1"/>
+    <rect x="100" y="100" width="100" height="100" fill="url(#animGrad4)" rx="12" ry="12"
+          stroke="#ffffff" stroke-width="2"/>
   </g>
   
-  <!-- Text Section with glass backdrop -->
+  <!-- Seamless decorative line with integrated diamond start and tapered end -->
+  <path d="M 255,200 L 262,195 L 275,200 L 262,205 L 255,200 M 262,200 L 630,200 L 645,198 L 650,200 L 645,202 L 630,200" 
+        stroke="#4ecdc4" 
+        stroke-width="2" 
+        fill="#ff6b6b"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        opacity="0.7">
+    <animate attributeName="stroke" values="#4ecdc4;#45b7d1;#96ceb4;#feca57;#ff9ff3;#4ecdc4" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="fill" values="#ff6b6b;#feca57;#4ecdc4;#ff9ff3;#96ceb4;#ff6b6b" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;0.4;0.7" dur="3s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Text Section -->
   <g transform="translate(300, 0)">
-    <!-- Text backdrop -->
-    <rect x="-20" y="120" width="480" height="140" rx="16" ry="16"
-          fill="rgba(255,255,255,0.06)" 
-          stroke="rgba(255,255,255,0.12)" 
-          stroke-width="1"
-          filter="url(#blur)"/>
-    
     <!-- Project text (H3/H4 size) -->
     <text x="0" y="142" font-family="Arial, sans-serif" font-size="24" font-weight="400" 
-          fill="#444" opacity="0.9"
-          filter="drop-shadow(0 1px 2px rgba(255,255,255,0.5))">
+          fill="#6c757d">
       Project
     </text>
     
     <!-- Hands-Free text (H1 size) -->
     <text x="0" y="190" font-family="Arial, sans-serif" font-size="48" font-weight="bold" 
-          fill="#2c3e50"
-          filter="drop-shadow(0 2px 4px rgba(255,255,255,0.3))">
+          fill="#495057">
       A Hand
-      <animate attributeName="fill" values="#2c3e50;#e74c3c;#3498db;#2ecc71;#2c3e50" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="fill" values="#495057;#e74c3c;#3498db;#2ecc71;#495057" dur="10s" repeatCount="indefinite"/>
     </text>
     
     <!-- Gaming text (H1 size) -->
     <text x="0" y="240" font-family="Arial, sans-serif" font-size="48" font-weight="bold" 
-          fill="#34495e"
-          filter="drop-shadow(0 2px 4px rgba(255,255,255,0.3))">
+          fill="#6c757d">
       For A Game
-      <animate attributeName="fill" values="#34495e;#9b59b6;#f39c12;#1abc9c;#34495e" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="fill" values="#6c757d;#9b59b6;#f39c12;#1abc9c;#6c757d" dur="10s" repeatCount="indefinite"/>
     </text>
   </g>
-  
-  <!-- Final glass overlay for unified effect -->
-  <rect x="0" y="0" width="800" height="400" rx="24" ry="24" 
-        fill="rgba(255,255,255,0.08)" 
-        stroke="rgba(255,255,255,0.4)" 
-        stroke-width="1.5"/>
 </svg>

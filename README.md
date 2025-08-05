@@ -3,7 +3,7 @@
 
 > **Research Objective**: Investigating the feasibility of single-hand gesture-based gaming controls without physical input devices.
 
-HandsFree-Gaming is an experimental computer vision system that enables real-time hand gesture recognition for gaming applications. The system utilizes MediaPipe for hand landmark detection and implements custom gesture interpretation algorithms.
+A Hand For A Game is an experimental computer vision system that enables real-time hand gesture recognition for gaming applications. The system utilizes MediaPipe for hand landmark detection and implements custom gesture interpretation algorithms.
 
 > [!WARNING]
 > This is a research prototype with author-specific calibrations. It is not intended for general accessibility use or production deployment.
@@ -27,8 +27,8 @@ Before installation, ensure you have the required environment. See [Environment 
 
 ```bash
 # Clone the repository
-git clone https://github.com/stdnt-c1/HandsFree-Gaming.git
-cd HandsFree-Gaming
+git clone https://github.com/stdnt-c1/A-Hand-For-A-Game.git
+cd A-Hand-For-A-Game
 
 # Install Python dependencies
 pip install -r requirements.txt

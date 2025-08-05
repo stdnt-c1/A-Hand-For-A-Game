@@ -1,4 +1,4 @@
-# Code of Conduct for HandsFree-Gaming Project
+# Code of Conduct for A Hand For A Game Project
 
 ## Our Pledge
 

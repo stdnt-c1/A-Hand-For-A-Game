@@ -309,6 +309,6 @@ After completing environment setup:
 4. Review `PROJECT_SUMMARY.md` for architecture overview
 
 For issues not covered here, check:
-- GitHub Issues: https://github.com/stdnt-c1/HandsFree-Gaming/issues
+- GitHub Issues: https://github.com/stdnt-c1/A-Hand-For-A-Game/issues
 - Project documentation in `docs/` directory
 - Community discussions and wiki

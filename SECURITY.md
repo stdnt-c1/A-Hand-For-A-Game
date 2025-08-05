@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-HandsFree-Gaming is currently under active development. The following versions are currently supported with security updates:
+A Hand For A Game is currently under active development. The following versions are currently supported with security updates:
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -11,7 +11,7 @@ HandsFree-Gaming is currently under active development. The following versions a
 
 ## Reporting a Vulnerability
 
-We take the security of HandsFree-Gaming seriously. If you believe you've found a security vulnerability in our project, please follow these steps:
+We take the security of A Hand For A Game seriously. If you believe you've found a security vulnerability in our project, please follow these steps:
 
 1. **Do Not** disclose the vulnerability publicly or to other users.
 2. **Contact** the project maintainers directly via email or private message.
@@ -37,7 +37,7 @@ We kindly ask security researchers to:
 
 ## Security Best Practices for Users
 
-1. **Stay Updated**: Always use the latest version of HandsFree-Gaming.
+1. **Stay Updated**: Always use the latest version of A Hand For A Game.
 2. **Limited Access**: When using the system, implement it with appropriate access controls.
 3. **Regular Audits**: Regularly audit your implementation for potential security issues.
 4. **Verify Downloads**: Always download from official sources and verify checksums when available.
@@ -50,7 +50,7 @@ Any known security issues that have been addressed will be listed here:
 
 ## Security Implementation Details
 
-HandsFree-Gaming takes the following security measures:
+A Hand For A Game takes the following security measures:
 
 - Input validation to prevent injection attacks
 - Permission controls for camera and device access
