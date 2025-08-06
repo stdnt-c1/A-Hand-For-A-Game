@@ -4,9 +4,9 @@
       "enabled": true,
       "gestures": [
         {
-          "name": "fist_neutral_init",
-          "description": "Neutral position with palm facing camera",
-          "validation_function": "validate_fist_neutral",
+          "name": "NEUTRAL",
+          "description": "Neutral position - ring finger in palm or fist",
+          "validation_function": "validate_movement_neutral",
           "output_key": null,
           "properties": {
             "hold": false,
@@ -16,57 +16,81 @@
           "enabled": true
         },
         {
-          "name": "thumbs_out_left",
+          "name": "FORWARD",
+          "description": "Hand closer to camera - larger palm bounding box",
+          "validation_function": "validate_movement_forward",
+          "output_key": "KEY_W",
+          "properties": {
+            "hold": true,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "BACKWARD", 
+          "description": "Hand farther from camera - smaller palm bounding box",
+          "validation_function": "validate_movement_backward",
+          "output_key": "KEY_S",
+          "properties": {
+            "hold": true,
+            "repeating": false,
+            "interval": null
+          },
+          "enabled": true
+        },
+        {
+          "name": "LEFT",
           "description": "Thumb extended outward for left movement",
-          "validation_function": "validate_thumbs_out_left",
+          "validation_function": "validate_movement_left", 
           "output_key": "KEY_A",
           "properties": {
             "hold": true,
             "repeating": false,
             "interval": null
           },
-          "enabled": true
+          "enabled": false
         },
         {
-          "name": "pinky_out_right",
+          "name": "RIGHT",
           "description": "Pinky extended outward for right movement",
-          "validation_function": "validate_pinky_out_right",
-          "output_key": "KEY_D",
+          "validation_function": "validate_movement_right",
+          "output_key": "KEY_D", 
           "properties": {
             "hold": true,
             "repeating": false,
             "interval": null
           },
-          "enabled": true
+          "enabled": false
         },
         {
-          "name": "index_curled_shift",
+          "name": "SHIFT",
           "description": "Index finger curled for shift modifier",
-          "validation_function": "validate_index_curled_shift",
+          "validation_function": "validate_movement_shift",
           "output_key": "KEY_SHIFT",
           "properties": {
             "hold": true,
             "repeating": false,
             "interval": null
           },
-          "enabled": true
+          "enabled": false
         },
         {
-          "name": "jump_space",
+          "name": "JUMP",
           "description": "Pinky and Thumb extended with palm tilted backwards",
-          "validation_function": "validate_jump_space",
+          "validation_function": "validate_movement_jump",
           "output_key": "KEY_SPACE",
           "properties": {
             "hold": false,
             "repeating": false,
             "interval": null
           },
-          "enabled": true
+          "enabled": false
         }
       ]
     },
     "ActionControl": {
-      "enabled": true,
+      "enabled": false,
       "gestures": [
         {
           "name": "palm_neutral",
@@ -143,7 +167,7 @@
       ]
     },
     "CameraControl": {
-      "enabled": true,
+      "enabled": false,
       "gestures": [
         {
           "name": "camera_neutral",
@@ -172,7 +196,7 @@
       ]
     },
     "NavigationControl": {
-      "enabled": true,
+      "enabled": false,
       "gestures": [
         {
           "name": "peace_sign_enter",
@@ -218,13 +242,21 @@
     "max_processing_time_ms": 20,
     "enable_caching": true,
     "cache_duration_ms": 100,
-    "enable_jit_compilation": true
+    "enable_jit_compilation": true,
+    "processing_target_width": 640,
+    "processing_target_height": 480,
+    "detection_confidence": 0.8,
+    "tracking_confidence": 0.5,
+    "smoothing_factor": 3,
+    "fps_smoothing": 0.9
   },
   "system_settings": {
-    "camera_index": 0,
-    "window_width": 1280,
+    "camera_index": 1,
+    "window_width": 1080,
     "window_height": 720,
     "enable_debug_output": false,
-    "enable_performance_monitoring": true
+    "enable_performance_monitoring": true,
+    "mirror_camera": true,
+    "show_stream_info": true
   }
 }

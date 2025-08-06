@@ -1,6 +1,15 @@
 import cv2
+import sys
 import mediapipe as mp
-from .geometry_utils import HandLandmark
+from pathlib import Path
+
+# Handle both relative and absolute imports
+try:
+    from .geometry_utils import HandLandmark
+except ImportError:
+    # Add current directory to path for direct execution
+    sys.path.insert(0, str(Path(__file__).parent))
+    from geometry_utils import HandLandmark
 
 def draw_hand_landmarks(image, landmarks, palm_bbox, mp_hands, colors):
     h, w, _ = image.shape
@@ -135,17 +144,28 @@ def draw_tilt_anchor_point(image, landmarks, palm_bbox, mp_hands, colors):
     cv2.circle(image, palm_center_point, 5, colors["TILT_ANCHOR_COLOR"], -1)
     cv2.circle(image, middle_pip_point, 5, colors["TILT_ANCHOR_COLOR"], -1)
 
-def display_info(image, fps, cpu_usage, mem_usage, gpu_utilization, gpu_memory_usage, is_calibrated, neutral_area, movement_status, action_status, camera_status, navigation_status, colors):
+def display_info(image, fps, cpu_usage, mem_usage, gpu_utilization, gpu_memory_usage, is_calibrated, neutral_area, movement_status, action_status, camera_status, navigation_status, colors, stream_info=None):
     cv2.putText(image, f"FPS: {fps:.2f}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["TEXT_COLOR"], 2)
     cv2.putText(image, f"CPU: {cpu_usage:.1f}%", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["TEXT_COLOR"], 2)
     cv2.putText(image, f"MEM: {mem_usage:.1f}%", (10, 110), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["TEXT_COLOR"], 2)
     cv2.putText(image, f"GPU Util: {gpu_utilization:.1f}%", (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["TEXT_COLOR"], 2)
     cv2.putText(image, f"GPU Mem: {gpu_memory_usage:.1f}%", (10, 190), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["TEXT_COLOR"], 2)
 
-    if not is_calibrated:
-        cv2.putText(image, "Clench fist in neutral pose and press 'c' to calibrate", (10, 230), cv2.FONT_HERSHEY_SIMPLEX, 0.8, colors["STATUS_COLOR_NEUTRAL"], 2)
+    # Display stream processing info if enabled
+    if stream_info:
+        cv2.putText(image, f"Processing: {stream_info['processing_resolution']}", (10, 230), cv2.FONT_HERSHEY_SIMPLEX, 0.7, colors["TEXT_COLOR"], 2)
+        cv2.putText(image, f"Scale: {stream_info['processing_scale']}", (10, 255), cv2.FONT_HERSHEY_SIMPLEX, 0.7, colors["TEXT_COLOR"], 2)
+        cv2.putText(image, f"Display: {stream_info['display_resolution']}", (10, 280), cv2.FONT_HERSHEY_SIMPLEX, 0.7, colors["TEXT_COLOR"], 2)
+        startup_status = "Ready" if stream_info['startup_complete'] else "Starting..."
+        cv2.putText(image, f"C++ Engine: {startup_status}", (10, 305), cv2.FONT_HERSHEY_SIMPLEX, 0.7, colors["TEXT_COLOR"], 2)
+        status_y_offset = 340
     else:
-        cv2.putText(image, f"MOVEMENT: {movement_status}", (10, 230), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["STATUS_COLOR_GO"], 2)
-        cv2.putText(image, f"ACTION: {action_status}", (10, 270), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["STATUS_COLOR_GO"], 2)
-        cv2.putText(image, f"CAMERA: {camera_status}", (10, 310), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["STATUS_COLOR_GO"], 2)
-        cv2.putText(image, f"NAVIGATION: {navigation_status}", (10, 350), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["STATUS_COLOR_GO"], 2)
+        status_y_offset = 230
+
+    if not is_calibrated:
+        cv2.putText(image, "Clench fist in neutral pose and press 'c' to calibrate", (10, status_y_offset), cv2.FONT_HERSHEY_SIMPLEX, 0.8, colors["STATUS_COLOR_NEUTRAL"], 2)
+    else:
+        cv2.putText(image, f"MOVEMENT: {movement_status}", (10, status_y_offset), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["STATUS_COLOR_GO"], 2)
+        cv2.putText(image, f"ACTION: {action_status}", (10, status_y_offset + 40), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["STATUS_COLOR_GO"], 2)
+        cv2.putText(image, f"CAMERA: {camera_status}", (10, status_y_offset + 80), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["STATUS_COLOR_GO"], 2)
+        cv2.putText(image, f"NAVIGATION: {navigation_status}", (10, status_y_offset + 120), cv2.FONT_HERSHEY_SIMPLEX, 1, colors["STATUS_COLOR_GO"], 2)

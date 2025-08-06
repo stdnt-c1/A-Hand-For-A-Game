@@ -34,6 +34,10 @@ class OptimizedGestureEngine:
         self.AUTHOR_MEMORY_THRESHOLD = 85  # Author's available RAM consideration
         self.STABILITY_FRAMES = 3  # Author's preferred responsiveness vs stability
         
+        # CRITICAL: Load configuration to respect enabled/disabled settings
+        from ..core.config_manager import get_controls_config
+        self.controls_config = get_controls_config()
+        
         self.performance_optimizer = PerformanceOptimizer()
         self.validator = OptimizedGestureValidator()
         
@@ -65,23 +69,15 @@ class OptimizedGestureEngine:
     def _load_cpp_extension(self):
         """Load the C++ extension for performance-critical calculations."""
         try:
-            # Try to load the compiled extension from project root
-            project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-            dll_paths = [
-                os.path.join(project_root, 'resBalancer', 'build', 'res_balancer.dll'),
-                os.path.join(project_root, 'resBalancer', 'build', 'res_balancer.so'),
-                os.path.join(project_root, 'res_balancer.dll'),
-                os.path.join(project_root, 'res_balancer.so'),
-                'res_balancer.dll',  # Current directory
-                'res_balancer.so'    # Current directory
-            ]
+            # Use the unified DLL manager instead of direct loading
+            from ..core.dll_manager import get_frame_processor_dll
             
-            for dll_path in dll_paths:
-                if os.path.exists(dll_path):
-                    self.cpp_extension = ctypes.CDLL(dll_path)
-                    self._setup_cpp_functions()
-                    print(f"✅ C++ extension loaded from: {dll_path}")
-                    return
+            self.cpp_extension = get_frame_processor_dll()
+            
+            if self.cpp_extension:
+                self._setup_cpp_functions()
+                print("✅ C++ extension loaded successfully via DLL manager")
+                return
                     
             print("⚠️  C++ extension not found. Using Python fallback (slower performance)")
             print("   To build the extension, run: scripts/build_dll.bat (Windows) or scripts/build_dll.sh (Linux/macOS)")
@@ -179,28 +175,45 @@ class OptimizedGestureEngine:
         return landmarks_hash == self.previous_landmarks_hash
     
     def _process_gestures_optimized(self, landmarks_array, palm_bbox, neutral_area, neutral_distances):
-        """Process all gesture types with optimized validation."""
+        """Process all gesture types with optimized validation - RESPECTING CONFIG SETTINGS."""
         results = {}
         
-        # Process in order of priority and computational complexity
-        processing_order = [
-            ('action', self._process_action_gestures),
-            ('movement', self._process_movement_gestures),
-            ('camera', self._process_camera_gestures),
-            ('navigation', self._process_navigation_gestures)
-        ]
-        
-        for gesture_type, processor in processing_order:
+        # CRITICAL FIX: Only process enabled gesture controls from config
+        if self.controls_config.get('MovementControl', {}).get('enabled', False):
             try:
-                if gesture_type == 'movement':
-                    results[gesture_type] = processor(landmarks_array, palm_bbox, neutral_area, neutral_distances)
-                elif gesture_type == 'camera':
-                    results[gesture_type] = processor(landmarks_array, palm_bbox, neutral_distances)
-                else:
-                    results[gesture_type] = processor(landmarks_array, palm_bbox)
+                results['movement'] = self._process_movement_gestures(landmarks_array, palm_bbox, neutral_area, neutral_distances)
             except Exception as e:
-                print(f"Error processing {gesture_type}: {e}")
-                results[gesture_type] = 'NEUTRAL'
+                print(f"Error processing movement: {e}")
+                results['movement'] = 'NEUTRAL'
+        else:
+            results['movement'] = 'NEUTRAL'
+        
+        if self.controls_config.get('ActionControl', {}).get('enabled', False):
+            try:
+                results['action'] = self._process_action_gestures(landmarks_array, palm_bbox)
+            except Exception as e:
+                print(f"Error processing action: {e}")
+                results['action'] = 'NEUTRAL'
+        else:
+            results['action'] = 'NEUTRAL'
+        
+        if self.controls_config.get('CameraControl', {}).get('enabled', False):
+            try:
+                results['camera'] = self._process_camera_gestures(landmarks_array, palm_bbox, neutral_distances)
+            except Exception as e:
+                print(f"Error processing camera: {e}")
+                results['camera'] = 'NEUTRAL'
+        else:
+            results['camera'] = 'NEUTRAL'
+        
+        if self.controls_config.get('NavigationControl', {}).get('enabled', False):
+            try:
+                results['navigation'] = self._process_navigation_gestures(landmarks_array, palm_bbox)
+            except Exception as e:
+                print(f"Error processing navigation: {e}")
+                results['navigation'] = 'NEUTRAL'
+        else:
+            results['navigation'] = 'NEUTRAL'
         
         return results
     
@@ -215,18 +228,27 @@ class OptimizedGestureEngine:
         return "NEUTRAL"
     
     def _process_movement_gestures(self, landmarks_array, palm_bbox, neutral_area, neutral_distances):
-        """Process movement gestures with early exit optimization."""
-        if neutral_area is None or neutral_distances is None:
-            return "NEUTRAL"
+        """Process movement gestures with enhanced depth detection."""
+        # Import the enhanced movement controller
+        from ..controls.movement_control import determine_movement_status
         
-        gesture_order = self.validator.validation_order["MOVEMENT_CONTROL"]
+        # Create a mock MediaPipe landmarks object from numpy array
+        class MockLandmark:
+            def __init__(self, x, y, z):
+                self.x = x
+                self.y = y
+                self.z = z
         
-        for gesture in gesture_order:
-            if self.validator.validate_movement_gesture_optimized(landmarks_array, palm_bbox, 
-                                                               neutral_area, neutral_distances, gesture):
-                return gesture
+        class MockLandmarks:
+            def __init__(self, landmarks_array):
+                self.landmark = []
+                for row in landmarks_array:
+                    self.landmark.append(MockLandmark(row[0], row[1], row[2]))
         
-        return "NEUTRAL"
+        mock_landmarks = MockLandmarks(landmarks_array)
+        result = determine_movement_status(mock_landmarks, palm_bbox)
+        
+        return result
     
     def _process_camera_gestures(self, landmarks_array, palm_bbox, neutral_distances):
         """Process camera gestures (placeholder for now)."""

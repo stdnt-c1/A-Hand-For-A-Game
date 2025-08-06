@@ -17,6 +17,7 @@ Gaming Requirements:
 
 import time
 from ..core.gesture_definitions import get_fixed_gesture_definitions
+from ..core.config_manager import get_controls_config
 
 # Author's Gaming Configuration (stdnt-c1 calibrated - 2025-08-03)
 STABILITY_FRAMES = 3  # Author's preferred responsiveness vs stability balance
@@ -44,6 +45,10 @@ class ActionControlEngine:
     """
     
     def __init__(self):
+        # Load configuration
+        self.config = get_controls_config().get("ActionControl", {})
+        self.enabled = self.config.get("enabled", True)
+        
         self.last_action_time = 0
         self.gesture_confirmation_frames = 0
         self.last_detected_gesture = "NEUTRAL"
@@ -51,10 +56,14 @@ class ActionControlEngine:
     def determine_action_status(self, landmarks, palm_bbox):
         """
         Determines action status with gaming-optimized stability and anti-spam.
+        Respects config-based enabling/disabling.
         
         Author-calibrated: Based on stdnt-c1's gaming patterns and preferences
         Performance: Target <50ms latency with 3-frame stability
         """
+        # Check if action control is enabled
+        if not self.enabled:
+            return "NEUTRAL"
         current_time = time.time() * 1000  # Convert to milliseconds
         
         # Get gesture definitions

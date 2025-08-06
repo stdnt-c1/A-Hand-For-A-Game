@@ -4,8 +4,7 @@
 
 All Python dependencies are managed through `requirements.txt`:
 
-> [!NOTE]
-> Version numbers represent minimum requirements. Newer versions are generally compatible unless otherwise noted.
+**Note**: Version numbers represent minimum requirements. Newer versions are generally compatible unless otherwise noted.
 
 ```
 opencv-python>=4.8.0
@@ -35,111 +34,74 @@ psutil>=5.9.0
 > [!WARNING]
 > MediaPipe version compatibility is critical. Use the specified version or newer to ensure proper hand landmark detection functionality.
 
+## Enhanced GPU Acceleration Dependencies
+
+### NVIDIA CUDA Toolkit (Required for Maximum Performance)
+- **CUDA 12.8+**: Full GPU acceleration with NVIDIA GPUs
+- **Compatible NVIDIA Driver**: 545.84+ for optimal performance
+- **Supported GPU Architectures**: 
+  - Maxwell (GTX 900 series)
+  - Pascal (GTX 10 series) 
+  - Turing (RTX 20 series)
+  - Ampere (RTX 30 series)
+  - Ada Lovelace (RTX 40 series)
+
+#### CUDA Installation
+```powershell
+# Download from: https://developer.nvidia.com/cuda-downloads
+# Install CUDA 12.8 with VS Integration
+# Verify installation:
+nvcc --version
+nvidia-smi
+```
+
+### Enhanced C++ Build Environment
+```powershell
+# Visual Studio 2022 Build Tools (Required)
+winget install Microsoft.VisualStudio.2022.BuildTools
+
+# Required Components:
+# - MSVC v143 compiler toolset for x64
+# - Windows 11 SDK (latest)
+# - CMake tools for Visual Studio
+```
+
 ## System-Level Dependencies
 
-### Windows
+### Windows (Enhanced Requirements)
 
 #### Required System Components
 - **DirectShow**: Camera access framework (pre-installed Windows 10+)
 - **Windows Media Foundation**: Media processing pipeline (pre-installed)
-- **Visual C++ Redistributable**: Runtime libraries for compiled extensions
+- **Visual C++ Redistributable 2022**: Runtime libraries for CUDA extensions
+- **NVIDIA Graphics Driver**: 545.84+ for CUDA 12.8 compatibility
 
-#### C++ Development Environment (Optional but Recommended)
-```powershell
-# Option 1: MinGW-w64 (Recommended for open-source)
-winget install BrechtSanders.WinLibs.POSIX.UCRT
+#### Enhanced Performance Libraries
+- **CUDA Runtime (cudart64_12.dll)**: Automatically deployed with build
+- **CUBLAS**: CUDA Basic Linear Algebra Subroutines
+- **CURAND**: CUDA Random Number Generation
+- **CUFFT**: CUDA Fast Fourier Transform
 
-# Option 2: Microsoft Build Tools 2022
-winget install Microsoft.VisualStudio.2022.BuildTools
+### Hardware Requirements (Updated for CUDA)
 
-# Option 3: Visual Studio Community (Full IDE)
-winget install Microsoft.VisualStudio.2022.Community
-```
-
-**Build Tools Components Needed:**
-- MSVC v143 compiler toolset for x64
-- Windows 11 SDK (latest version)
-- CMake tools for Visual Studio
-
-### Linux (Ubuntu/Debian)
-
-#### Essential System Packages
-```bash
-# Core development tools
-sudo apt update
-sudo apt install build-essential cmake git pkg-config
-
-# Video and camera support
-sudo apt install libv4l-dev v4l-utils ffmpeg
-
-# OpenCV system dependencies
-sudo apt install libgtk-3-dev libavcodec-dev libavformat-dev libswscale-dev
-sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
-
-# Python development headers
-sudo apt install python3-dev python3-pip
-
-# Optional: Hardware acceleration
-sudo apt install libva-dev libvdpau-dev  # Video acceleration
-```
-
-#### CentOS/RHEL/Fedora
-```bash
-# Development tools
-sudo dnf groupinstall "Development Tools"
-sudo dnf install cmake git pkg-config
-
-# Media libraries
-sudo dnf install v4l-utils ffmpeg-devel
-
-# Python development
-sudo dnf install python3-devel python3-pip
-```
-
-### macOS
-
-#### Required Components
-```bash
-# Xcode Command Line Tools (Essential)
-xcode-select --install
-
-# Homebrew package manager
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Development tools via Homebrew
-brew install cmake git pkg-config
-
-# Optional: Additional media libraries
-brew install ffmpeg
-```
-
-## Hardware Requirements
-
-### Camera Requirements
-- **Resolution**: Minimum 640x480, recommended 1280x720 or higher
-- **Frame Rate**: Minimum 15 FPS, recommended 30 FPS
-- **Interface**: USB 2.0+ or built-in webcam
-- **Lighting**: Adequate lighting for hand detection (natural or artificial)
-
-### Performance Requirements
-
-#### Minimum System Specs
+#### Minimum System Specs (CPU Fallback)
 - **CPU**: Intel Core i3-8100 / AMD Ryzen 3 2200G
 - **RAM**: 8GB DDR4
 - **Storage**: 2GB available space
 - **OS**: Windows 10 v1909+ / Ubuntu 20.04+ / macOS 11+
 
-#### Recommended System Specs
+#### Recommended System Specs (CUDA Accelerated)
 - **CPU**: Intel Core i5-10400 / AMD Ryzen 5 3600
 - **RAM**: 16GB DDR4
-- **Storage**: 4GB available space (SSD recommended)
-- **GPU**: Integrated graphics sufficient, dedicated GPU optional for acceleration
+- **GPU**: NVIDIA GTX 1660+ with 4GB+ VRAM
+- **Storage**: 4GB available space (NVMe SSD recommended)
 
-#### High-Performance Setup
+#### High-Performance Setup (Maximum CUDA Performance)
 - **CPU**: Intel Core i7-12700 / AMD Ryzen 7 5700X
 - **RAM**: 32GB DDR4
-- **GPU**: NVIDIA GTX 1660+ or AMD RX 580+ (for CUDA/OpenCL acceleration)
-- **Storage**: NVMe SSD
+- **GPU**: NVIDIA RTX 3060+ with 8GB+ VRAM
+- **Storage**: NVMe SSD with 10GB+ available space
+- **Cooling**: Adequate GPU cooling for sustained performance
 
 ## Compilation Dependencies
 
@@ -173,7 +135,7 @@ No external C++ libraries are required - the extensions use only standard librar
 ### Environment Variables
 ```bash
 # Required for Python module resolution
-export PYTHONPATH="/path/to/AzimuthControl:$PYTHONPATH"
+export PYTHONPATH="/path/to/A-Hand-For-A-Game:$PYTHONPATH"
 
 # Optional performance tuning
 export OMP_NUM_THREADS=4              # Limit OpenMP threads
@@ -181,7 +143,7 @@ export OPENBLAS_NUM_THREADS=1         # Limit BLAS threads
 export MEDIAPIPE_DISABLE_GPU=1        # Force CPU mode if needed
 
 # Windows PowerShell equivalent
-$env:PYTHONPATH = "E:\AzimuthControl;$env:PYTHONPATH"
+$env:PYTHONPATH = "C:\path\to\A-Hand-For-A-Game;$env:PYTHONPATH"
 ```
 
 ### Camera Permissions

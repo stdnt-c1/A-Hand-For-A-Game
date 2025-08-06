@@ -4,10 +4,9 @@
 
 ### Design Philosophy
 
-The AzimuthControl system follows a component-based architecture designed for performance and modularity. The system prioritizes author-specific calibration and Windows gaming integration.
+The A Hand For A Game system follows a component-based architecture designed for performance and modularity. The system prioritizes research-focused gesture recognition and Windows gaming integration.
 
-> [!WARNING]
-> This system is calibrated exclusively for the original author's hand anatomy and hardware configuration. Performance and accuracy will vary with different users or setups.
+**Note**: This system is calibrated exclusively for the original author's hand anatomy and hardware configuration. Performance and accuracy will vary with different users or setups.
 
 **Core Design Principles:**
 - Author-specific calibration for optimal accuracy
@@ -138,7 +137,7 @@ sequenceDiagram
 <summary><strong>📂 Detailed Module Breakdown</strong></summary>
 
 ```
-AzimuthControl/
+A-Hand-For-A-Game/
 ├── 📁 src/                           # Source code root
 │   ├── 🎯 core/                      # Core gesture recognition
 │   │   ├── gesture_definitions.py    # Author-specific gesture patterns

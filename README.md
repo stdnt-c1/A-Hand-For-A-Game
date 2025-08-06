@@ -73,15 +73,25 @@ If you use this software in academic research, please cite it as:
 
 ### Prerequisites
 
-Before installation, ensure you have the required environment. See [Environment Setup Guide](docs/ENVIRONMENT_SETUP.md) for detailed requirements.
+> [!CAUTION]
+> **Complex Development Environment Required**: This project requires advanced toolchain setup that may take hours to configure properly.
 
-> [!IMPORTANT]
-> - Python 3.9+ (3.11 recommended)
-> - C++ compiler (MinGW-w64 or Visual Studio Build Tools for Windows)
-> - Camera/webcam access
-> - System libraries and dependencies
+**Mandatory Requirements:**
+- **Windows 10/11** (Required - Linux/macOS support incomplete)
+- **Python 3.9+** (3.11 recommended)
+- **Visual Studio Build Tools 2022** with MSVC v143 compiler
+- **CUDA Toolkit 12.8** with NVCC compiler
+- **MinGW-w64** for additional build components
+- **CUDA-compatible GPU** (GTX 1060+ recommended)
+- **Camera/webcam access**
+
+> [!WARNING]
+> **Environment Complexity**: Setting up CUDA Toolkit + Visual Studio Build Tools + Python environment is non-trivial. See [Environment Setup Guide](docs/ENVIRONMENT_SETUP.md) for detailed requirements.
 
 ### Installation
+
+> [!WARNING]
+> **Advanced Setup Required**: The following steps assume you have successfully installed all prerequisites above.
 
 ```bash
 # Clone the repository
@@ -91,31 +101,36 @@ cd A-Hand-For-A-Game
 # Install Python dependencies
 pip install -r requirements.txt
 
-# Build C++ extensions (optional, provides 75% performance improvement)
-scripts\build_dll.bat    # Windows
-./scripts/build_dll.sh   # Linux/macOS
+# Build CUDA extensions (REQUIRED - not optional)
+# Note: Build scripts are environment-specific and not included in public repository
+# Contact repository maintainer for build assistance
 
 # Verify installation
-python tests/test_imports.py
+python hand_control.py
 ```
+
+> [!IMPORTANT]
+> **CUDA Extensions Required**: The system requires compiled CUDA extensions to function properly. The build process needs NVCC (CUDA compiler) and MSVC (Visual Studio compiler) working together.
 
 ### Running the Application
 
 ```bash
 # Start the main application
 python hand_control.py
-
-# Run performance validation
-python tests/test_performance.py
 ```
 
-> [!TIP]
-> Use the C++ extensions for optimal performance. The system automatically falls back to Python-only mode if extensions are unavailable.
+**Application Controls:**
+- **C key**: Calibrate camera (essential for mirrored webcams)
+- **Q key**: Quit application
+- **ESC key**: Emergency stop
+
+> [!IMPORTANT]
+> **CUDA Extensions Required**: The system requires compiled CUDA extensions to function properly. No fallback mode is available.
 
 ## Project Structure
 
 ```
-AzimuthControl/
+A-Hand-For-A-Game/
 ├── src/                           # Source code
 │   ├── core/                      # Core gesture recognition
 │   │   ├── gesture_definitions.py # Gesture validation functions
@@ -136,10 +151,20 @@ AzimuthControl/
 │       ├── optimizer.py          # Adaptive performance tuning
 │       └── monitor.py            # Performance monitoring
 ├── config/                        # Configuration files
-├── tests/                         # Test suite
 ├── docs/                          # Documentation
 ├── resBalancer/                   # C++ performance extensions
-└── hand_control.py               # Main application entry point
+├── deps/                          # External dependencies
+├── images/                        # Project assets
+├── config_manager.py             # Configuration utilities
+├── hand_control.py               # Main application entry point
+├── requirements.txt              # Python dependencies
+├── setup.py                      # Installation script
+├── LICENSE                       # License file
+├── CITATION.cff                  # Citation metadata
+├── citation.bib                  # BibTeX citations
+├── CODE_OF_CONDUCT.md           # Community guidelines
+├── CONTRIBUTING.md              # Contribution guidelines
+└── SECURITY.md                  # Security policy
 ```
 
 ## Gesture Controls
@@ -202,18 +227,15 @@ The system uses centralized configuration in `config/controls.json`:
 - **C++ Extensions**: Critical path calculations in optimized C++
 - **Stability Filtering**: Reduces gesture flickering with multi-frame confirmation
 
-> [!TIP]
-> Enable C++ extensions for 75% performance improvement over Python-only mode.
+> [!IMPORTANT]
+> **CUDA Extensions Required**: These extensions are mandatory for system operation, not optional performance enhancements.
 
 ## Testing
 
-Run the comprehensive test suite:
+> [!NOTE]
+> **Test Suite Not Public**: Test files are excluded from the public repository for development environment isolation. Testing is performed in the author's development environment.
 
-```bash
-python -m pytest tests/test_gesture_system.py -v
-```
-
-Test coverage includes:
+Core functionality validation:
 - Gesture compatibility validation
 - Performance benchmarks
 - Import verification
@@ -222,14 +244,14 @@ Test coverage includes:
 ## System Requirements
 
 ### Minimum Requirements
-- **OS**: Windows 10, Ubuntu 20.04+, or macOS 11+
+- **OS**: Windows 10/11 (Linux/macOS support incomplete)
 - **Python**: 3.9+ (3.11 recommended)
 - **RAM**: 8GB
 - **Camera**: USB webcam or integrated camera (720p+)
 - **Storage**: 2GB free space
 
 ### Recommended Requirements
-- **OS**: Windows 11 or Ubuntu 22.04+
+- **OS**: Windows 11
 - **Python**: 3.11
 - **RAM**: 16GB
 - **CPU**: Intel i5/AMD Ryzen 5 or better
@@ -238,7 +260,7 @@ Test coverage includes:
 ### External Dependencies
 - **C++ Compiler**: MinGW-w64, Visual Studio Build Tools, or GCC 9+
 - **System Libraries**: Camera drivers, OpenCV system libraries
-- **Optional**: CUDA toolkit for GPU acceleration
+- **CUDA Toolkit**: Required for GPU acceleration (not optional)
 
 > [!IMPORTANT]
 > See [Environment Setup Guide](docs/ENVIRONMENT_SETUP.md) for complete setup instructions and [Dependencies Documentation](docs/DEPENDENCIES.md) for detailed dependency information.
@@ -258,14 +280,14 @@ The system includes built-in performance monitoring:
 1. Add gesture definition to `src/core/gesture_definitions.py`
 2. Update configuration in `config/controls.json`
 3. Add detection logic to `src/core/gesture_determinator.py`
-4. Write tests in `tests/test_gesture_system.py`
+4. Validate functionality through manual testing
 
 ### Performance Optimization
 
 - Use Numba `@jit` decorators for computational functions
 - Implement result caching for expensive operations
 - Monitor performance with built-in profiling tools
-- Consider C++ extensions for critical performance paths
+- Require CUDA extensions for critical performance paths
 
 ## Contributing
 

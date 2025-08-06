@@ -70,20 +70,43 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
+# Personal and confidential files
+push_msg.txt
+push_message.txt
+copilot-instructions.md
+*.personal
+*.private
+*.secret
+.env.local
+.env.*.local
+
+# Development tools (local use)
+validate_imports.py
+
 # Project specific
 *.log
 *.tmp
 *.temp
 temp/
 logs/
-push_msg.txt
 
-# Build artifacts
+# Build artifacts and DLL management
 *.exe
 *.dll
 *.pyd
-build_optimized.bat
-build_optimized.sh
+*.so
+*.dylib
+# Allow specific essential DLLs
+!resBalancer/res_balancer*.dll
+!resBalancer/cuda*.dll
+
+# Local build scripts (environment-specific)
+scripts/*build*x64*.bat
+scripts/setup_build_env.bat
+tests/test_frame_processor.bat
+scripts/
+legacy/
+tests/
 
 # Performance monitoring
 performance_*.json
@@ -96,8 +119,15 @@ perf_data/
 err-lgg-t/
 debug/
 .debug/
-copilot-instructions.md
-push_message.txt
 
 # Temporary files
 temp.win-amd64-cpython-311/
+
+# Archive directory (local development preservation)
+archive/
+
+# Auto-generated files
+build_dll_auto.bat
+FAILURE_LOG.md
+test*.py
+commit*.txt
