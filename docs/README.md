@@ -8,7 +8,8 @@ This directory contains comprehensive documentation for the **Enhanced A Hand Fo
 
 ### Core Architecture Documentation
 
-> **Important**: Start with the architecture guide to understand the system foundation before proceeding with setup.
+> [!IMPORTANT]
+> Start with the architecture guide to understand the system foundation before proceeding with setup.
 
 #### [`ARCHITECTURE_GUIDE.md`](ARCHITECTURE_GUIDE.md)
 **Complete system architecture deep-dive with CUDA integration**
@@ -19,17 +20,10 @@ This directory contains comprehensive documentation for the **Enhanced A Hand Fo
 - Performance monitoring and adaptive optimization
 - Mermaid diagrams for visual architecture understanding
 
-#### [`PROJECT_ORGANIZATION.md`](PROJECT_ORGANIZATION.md)
-**Enhanced project structure with CUDA components**
-- Updated directory structure with CUDA frame processor
-- Enhanced source code organization
-- CUDA performance core architecture
-- Gaming integration stack visualization
-- Migration benefits and upgrade path
-
 ### Setup & Configuration
 
-> **Warning**: Ensure all hardware requirements are met before beginning setup.
+> [!WARNING]
+> Ensure all hardware requirements are met before beginning setup.
 
 #### [`ENVIRONMENT_SETUP.md`](ENVIRONMENT_SETUP.md)
 **Comprehensive CUDA gaming environment setup guide**
@@ -48,31 +42,15 @@ This directory contains comprehensive documentation for the **Enhanced A Hand Fo
 - GPU hardware compatibility matrix
 - System-level dependencies for maximum performance
 
-#### [`CONFIG_MANAGEMENT.md`](CONFIG_MANAGEMENT.md)
-**Advanced configuration management with gaming profiles**
-- Multi-tier configuration architecture
-- Gaming performance profiles (competitive, precision, performance)
-- CUDA optimization settings
-- Author-specific calibration (stdnt-c1)
-- Real-time configuration monitoring
-- Game-specific configuration profiles
-
 ### Build & Development
 
-> **Note**: Follow the build scripts in sequence for optimal results.
-
-#### [`BUILD_SCRIPTS_README.md`](BUILD_SCRIPTS_README.md)
-**Enhanced CUDA build system documentation**
-- Main CUDA build script (`build_cuda_simple.bat`)
-- Multi-architecture GPU support (Maxwell to Ada Lovelace)
-- Automatic environment detection and setup
-- Comprehensive testing and verification
-- Troubleshooting for build issues
-- Performance optimization features
+> [!NOTE]
+> Follow the build scripts in sequence for optimal results.
 
 ### Performance Optimization
 
-> **Tip**: Performance optimization can provide significant improvements in gaming responsiveness.
+> [!TIP]
+> Performance optimization can provide significant improvements in gaming responsiveness.
 
 #### [`PERFORMANCE_GUIDE.md`](PERFORMANCE_GUIDE.md)
 **Comprehensive performance optimization guide**
@@ -85,12 +63,8 @@ This directory contains comprehensive documentation for the **Enhanced A Hand Fo
 
 ### Gaming Integration
 
-#### [`CONTROLS_README.md`](CONTROLS_README.md)
-**Gaming controls and input system documentation**
-- Windows SendInput integration
-- Anti-cheat compatibility
-- Gaming control mappings
-- Latency optimization techniques
+> [!NOTE]
+> **Gaming Controls**: Refer to the root README.md for complete gesture control documentation and gaming setup instructions.
 
 ## Quick Start Documentation Path
 
@@ -98,19 +72,16 @@ For new users, follow this documentation path:
 
 ### 1. Understand the System (5 minutes)
 - Read [`ARCHITECTURE_GUIDE.md`](ARCHITECTURE_GUIDE.md) overview section
-- Review [`PROJECT_ORGANIZATION.md`](PROJECT_ORGANIZATION.md) structure
 
 ### 2. Setup Environment (15-30 minutes)
 - Follow [`ENVIRONMENT_SETUP.md`](ENVIRONMENT_SETUP.md) step-by-step
 - Verify [`DEPENDENCIES.md`](DEPENDENCIES.md) requirements
-- Run [`BUILD_SCRIPTS_README.md`](BUILD_SCRIPTS_README.md) build process
 
 ### 3. Optimize Performance (10 minutes)
-- Configure using [`CONFIG_MANAGEMENT.md`](CONFIG_MANAGEMENT.md)
 - Apply [`PERFORMANCE_GUIDE.md`](PERFORMANCE_GUIDE.md) optimizations
 
 ### 4. Start Gaming! (2 minutes)
-- Load gaming profile
+- Load gaming profile from root README.md
 - Launch enhanced system
 - Enjoy maximum performance!
 
@@ -121,10 +92,7 @@ For new users, follow this documentation path:
 | **Architecture** | Complete | Aug 2025 | Yes |
 | **Environment Setup** | Complete | Aug 2025 | Yes |
 | **Dependencies** | Complete | Aug 2025 | Yes |
-| **Build System** | Complete | Aug 2025 | Yes |
 | **Performance** | Complete | Aug 2025 | Yes |
-| **Configuration** | Complete | Aug 2025 | Yes |
-| **Project Structure** | Complete | Aug 2025 | Yes |
 
 ## Documentation Maintenance
 
@@ -163,15 +131,19 @@ For new users, follow this documentation path:
 ## Enhanced Features Documented
 
 ### CUDA Acceleration
+> [!NOTE]
 > **Performance**: Complete GPU acceleration documentation with multi-architecture support details and CUDA-specific troubleshooting.
 
 ### Gaming Optimization
+> [!TIP]
 > **Latency**: Low-latency gaming mode documentation with anti-cheat compatibility and game-specific configurations.
 
 ### Performance Monitoring
+> [!IMPORTANT]
 > **Metrics**: Real-time monitoring documentation with adaptive scaling and system resource optimization.
 
 ### Author Calibration
+> [!WARNING]
 > **Precision**: stdnt-c1's hand-specific calibration with gaming hardware optimization and performance targets.
 
 ## Support & Feedback

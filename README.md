@@ -529,8 +529,8 @@ Comprehensive documentation is available in the `/docs` directory:
 - **[Architecture Guide](docs/ARCHITECTURE_GUIDE.md)**: System design and component overview
 - **[Environment Setup](docs/ENVIRONMENT_SETUP.md)**: Development environment configuration
 - **[Performance Guide](docs/PERFORMANCE_GUIDE.md)**: Optimization strategies and benchmarks
-- **[Controls Documentation](docs/CONTROLS_README.md)**: Gesture definitions and configurations
 - **[Dependencies](docs/DEPENDENCIES.md)**: Package requirements and installation
+- **[Documentation Overview](docs/README.md)**: Complete documentation index and quick start guide
 
 ## Research Status and Limitations
 
