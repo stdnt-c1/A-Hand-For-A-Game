@@ -76,41 +76,158 @@ If you use this software in academic research, please cite it as:
 > [!CAUTION]
 > **Complex Development Environment Required**: This project requires advanced toolchain setup that may take hours to configure properly.
 
-**Mandatory Requirements:**
-- **Windows 10/11** (Required - Linux/macOS support incomplete)
-- **Python 3.9+** (3.11 recommended)
+**Essential System Requirements:**
+- **Operating System**: Windows 10 (1909+) or Windows 11
+- **RAM**: 16GB minimum (32GB recommended for CUDA)
+- **Storage**: 10GB free space on SSD
+- **Camera**: USB 3.0 webcam (1080p@30fps minimum)
+- **GPU**: NVIDIA GTX 1060 or newer (for CUDA acceleration)
+
+**Required Software Stack:**
+- **Python 3.11.9** (Newer versions may have MediaPipe compatibility issues)
 - **Visual Studio Build Tools 2022** with MSVC v143 compiler
 - **CUDA Toolkit 12.8** with NVCC compiler
-- **MinGW-w64** for additional build components
-- **CUDA-compatible GPU** (GTX 1060+ recommended)
-- **Camera/webcam access**
+- **NVIDIA GPU Drivers** (Latest recommended)
 
 > [!WARNING]
-> **Environment Complexity**: Setting up CUDA Toolkit + Visual Studio Build Tools + Python environment is non-trivial. See [Environment Setup Guide](docs/ENVIRONMENT_SETUP.md) for detailed requirements.
+> **Environment Complexity**: Setting up CUDA Toolkit + Visual Studio Build Tools + Python environment is non-trivial and may take 2-4 hours to configure properly.
 
 ### Installation
 
 > [!WARNING]
-> **Advanced Setup Required**: The following steps assume you have successfully installed all prerequisites above.
+> **Advanced Setup Required**: Follow these steps in exact order for successful installation.
 
-```bash
+#### Step 1: Install Python 3.11.9
+
+> [!IMPORTANT]
+> **Python 3.11 Required**: Newer versions may have compatibility issues with MediaPipe.
+
+1. Download Python 3.11.9 from [python.org](https://www.python.org/downloads/release/python-3119/)
+2. **CRITICAL**: Check "Add Python to PATH" during installation
+3. Verify installation:
+```cmd
+python --version
+# Should output: Python 3.11.9
+```
+
+#### Step 2: Install Visual Studio Build Tools 2022
+
+> [!WARNING]
+> **Required for CUDA**: Visual Studio Build Tools are mandatory for compiling CUDA extensions.
+
+1. Download [Visual Studio Build Tools 2022](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022)
+2. Run installer and select:
+   - **MSVC v143 - VS 2022 C++ x64/x86 build tools**
+   - **Windows 10/11 SDK (latest version)**
+   - **CMake tools for Visual Studio**
+3. Verify installation:
+```cmd
+"C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+cl
+# Should show Microsoft compiler version
+```
+
+#### Step 3: Install CUDA Toolkit 12.8
+
+> [!IMPORTANT]
+> **CUDA 12.8 Specific**: Other versions may not be compatible.
+
+1. Download [CUDA Toolkit 12.8](https://developer.nvidia.com/cuda-12-8-0-download-archive)
+2. Install with default settings
+3. Verify installation:
+```cmd
+nvcc --version
+# Should show CUDA compiler version 12.8
+nvidia-smi
+# Should show your GPU and driver version
+```
+
+#### Step 4: Clone and Setup Project
+
+```cmd
 # Clone the repository
 git clone https://github.com/stdnt-c1/A-Hand-For-A-Game.git
 cd A-Hand-For-A-Game
 
-# Install Python dependencies
+# Create virtual environment
+python -m venv venv
+venv\Scripts\activate
+
+# Upgrade pip
+python -m pip install --upgrade pip
+```
+
+#### Step 5: Install Python Dependencies
+
+> [!NOTE]
+> **Specific Versions Required**: The requirements.txt contains tested version combinations.
+
+```cmd
+# Install all dependencies
 pip install -r requirements.txt
 
-# Build CUDA extensions (REQUIRED - not optional)
-# Note: Build scripts are environment-specific and not included in public repository
-# Contact repository maintainer for build assistance
+# Verify critical packages
+python -c "import cv2; print('OpenCV:', cv2.__version__)"
+python -c "import mediapipe as mp; print('MediaPipe:', mp.__version__)"
+python -c "import numpy as np; print('NumPy:', np.__version__)"
+```
 
-# Verify installation
+**Expected Versions:**
+- OpenCV: 4.10.0+
+- MediaPipe: 0.10.18+
+- NumPy: 1.24.0+
+- Numba: 0.60.0+
+
+#### Step 6: Build CUDA Extensions
+
+> [!CAUTION]
+> **Most Critical Step**: CUDA extensions are mandatory for system operation.
+
+1. Open "x64 Native Tools Command Prompt" (search in Start Menu)
+2. Navigate to project directory:
+```cmd
+cd path\to\A-Hand-For-A-Game\resBalancer
+```
+
+3. Build CUDA extensions:
+```cmd
+# Set up environment
+set CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8
+set "PATH=%CUDA_PATH%\bin;%PATH%"
+
+# Compile CUDA frame processor
+nvcc -shared -o res_balancer_cuda.dll cuda_frame_processor.cu res_balancer.cpp stream_processor.cpp opencv_free_processor.cpp -lcudart
+
+# Verify DLL creation
+dir *.dll
+# Should show res_balancer_cuda.dll
+```
+
+4. Test CUDA functionality:
+```cmd
+python test_dll.py
+# Should output: CUDA DLL loaded successfully
+```
+
+#### Step 7: Configure and Test
+
+```cmd
+# Activate virtual environment (if not already active)
+venv\Scripts\activate
+
+# Launch main application
 python hand_control.py
 ```
 
+**First Launch Checklist:**
+- [ ] Camera window opens successfully
+- [ ] Hand landmarks visible as green dots
+- [ ] FPS counter shows 25-30 FPS
+- [ ] No error messages in console
+- [ ] CUDA status shows "Enabled" in title bar
+
 > [!IMPORTANT]
-> **CUDA Extensions Required**: The system requires compiled CUDA extensions to function properly. The build process needs NVCC (CUDA compiler) and MSVC (Visual Studio compiler) working together.
+> **Mirror Calibration Required**: Press **C key** when application runs for webcam coordinate mapping.
 
 ### Running the Application
 
@@ -126,6 +243,78 @@ python hand_control.py
 
 > [!IMPORTANT]
 > **CUDA Extensions Required**: The system requires compiled CUDA extensions to function properly. No fallback mode is available.
+
+## Troubleshooting Common Issues
+
+### CUDA Compilation Failures
+
+> [!CAUTION]
+> **Environment Path Issues**: Most common cause of build failures.
+
+**Error: "nvcc is not recognized"**
+```cmd
+# Manually set CUDA path
+set CUDA_PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8
+set "PATH=%CUDA_PATH%\bin;%PATH%"
+nvcc --version
+```
+
+**Error: "Visual Studio not found"**
+```cmd
+# Use Developer Command Prompt
+"C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+```
+
+**Error: "Cannot find cudart64_12.dll"**
+```cmd
+# Copy CUDA runtime to project directory
+copy "%CUDA_PATH%\bin\cudart64_12.dll" resBalancer\
+```
+
+### Performance Issues
+
+**Low FPS (< 20)**:
+- Check GPU utilization: `nvidia-smi`
+- Reduce resolution in config: `"target_fps": 20`
+- Verify camera USB 3.0 connection
+- Close other GPU-intensive applications
+
+**High CPU Usage**:
+- Verify CUDA extensions loaded: Check console for "CUDA Enabled"
+- Reduce concurrent streams: `"max_concurrent_streams": 2`
+- Lower memory pool: `"memory_pool_size_mb": 128`
+
+**Memory Issues**:
+- Check available GPU memory: `nvidia-smi`
+- Reduce memory pool size in config
+- Close other applications using GPU memory
+
+### Camera Issues
+
+**Camera Not Detected**:
+```cmd
+# Test camera indices
+python -c "import cv2; [print(f'Camera {i}: {cv2.VideoCapture(i).read()[0]}') for i in range(4)]"
+```
+
+**Poor Hand Detection**:
+- Improve lighting (avoid shadows)
+- Clean camera lens
+- Adjust camera angle (slight downward angle recommended)
+- Remove background distractions
+
+### Application Crashes
+
+**ImportError with MediaPipe**:
+```cmd
+pip uninstall mediapipe
+pip install mediapipe==0.10.18
+```
+
+**DLL Load Errors**:
+- Verify CUDA runtime: `resBalancer\cudart64_12.dll` exists
+- Check architecture: Ensure x64 build
+- Verify dependencies: Run `python test_dll.py`
 
 ## Project Structure
 
@@ -244,23 +433,47 @@ Core functionality validation:
 ## System Requirements
 
 ### Minimum Requirements
-- **OS**: Windows 10/11 (Linux/macOS support incomplete)
-- **Python**: 3.9+ (3.11 recommended)
-- **RAM**: 8GB
-- **Camera**: USB webcam or integrated camera (720p+)
-- **Storage**: 2GB free space
+- **OS**: Windows 10 (1909+) or Windows 11
+- **Python**: 3.11.9 (exact version required)
+- **RAM**: 16GB (8GB absolute minimum)
+- **GPU**: NVIDIA GTX 1060 6GB or equivalent
+- **Camera**: USB 3.0 webcam (720p@30fps minimum)
+- **Storage**: 10GB free space on SSD
+- **Internet**: Required for initial package downloads
 
 ### Recommended Requirements
-- **OS**: Windows 11
-- **Python**: 3.11
-- **RAM**: 16GB
-- **CPU**: Intel i5/AMD Ryzen 5 or better
-- **Camera**: 1080p webcam with good lighting
+- **OS**: Windows 11 (22H2 or later)
+- **Python**: 3.11.9
+- **RAM**: 32GB DDR4
+- **GPU**: NVIDIA RTX 3060 or newer (8GB+ VRAM)
+- **CPU**: Intel i7-10700K / AMD Ryzen 7 3700X or better
+- **Camera**: 1080p@60fps webcam with good low-light performance
+- **Storage**: NVMe SSD with 20GB+ free space
 
-### External Dependencies
-- **C++ Compiler**: MinGW-w64, Visual Studio Build Tools, or GCC 9+
-- **System Libraries**: Camera drivers, OpenCV system libraries
-- **CUDA Toolkit**: Required for GPU acceleration (not optional)
+### Critical Software Dependencies
+- **CUDA Toolkit**: 12.8 (exact version)
+- **Visual Studio Build Tools**: 2022 (17.0+)
+- **NVIDIA Drivers**: 536.25+ (Game Ready or Studio)
+- **Python Packages**: See requirements.txt for exact versions
+
+### Hardware-Specific Notes
+
+> [!WARNING]
+> **GPU Memory Requirements**: System requires 4GB+ VRAM for optimal performance.
+
+**NVIDIA GPU Compatibility:**
+- **Supported**: GTX 1060+, RTX 20xx+, RTX 30xx+, RTX 40xx series
+- **Architecture**: Pascal, Turing, Ampere, Ada Lovelace
+- **Compute Capability**: 6.1+ required
+
+**Camera Requirements:**
+- **Connection**: USB 3.0 strongly recommended (USB 2.0 may cause frame drops)
+- **Resolution**: 1080p native (upscaled 720p acceptable)
+- **Frame Rate**: 30fps minimum, 60fps preferred
+- **Features**: Auto-focus, good low-light performance
+
+> [!IMPORTANT]
+> **Performance Scaling**: System automatically adapts to hardware capabilities but requires minimum specifications for basic functionality.
 
 > [!IMPORTANT]
 > See [Environment Setup Guide](docs/ENVIRONMENT_SETUP.md) for complete setup instructions and [Dependencies Documentation](docs/DEPENDENCIES.md) for detailed dependency information.

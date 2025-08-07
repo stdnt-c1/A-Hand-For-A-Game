@@ -131,3 +131,11 @@ build_dll_auto.bat
 FAILURE_LOG.md
 test*.py
 commit*.txt
+
+# Redundant documentation (covered in main docs)
+docs/PROJECT_ORGANIZATION.md
+docs/CONTROLS_README.md
+docs/CONFIG_MANAGEMENT.md
+
+# Development documentation (internal use)
+docs/BUILD_SCRIPTS_README.md

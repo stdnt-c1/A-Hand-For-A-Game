@@ -5,7 +5,7 @@ This document provides comprehensive instructions for setting up the **Enhanced 
 > [!WARNING]
 > This enhanced setup guide includes CUDA GPU acceleration for maximum gaming performance. The system is optimized for stdnt-c1's gaming environment with Windows 11 + NVIDIA GPU.
 
-## 🚀 Enhanced System Requirements
+## Enhanced System Requirements
 
 ### Operating System (Enhanced)
 - **Windows 10/11** (Primary support with CUDA acceleration)
@@ -17,28 +17,28 @@ This document provides comprehensive instructions for setting up the **Enhanced 
 
 ### Enhanced Hardware Requirements
 
-#### **Minimum Gaming Setup** 🎮
+#### Minimum Gaming Setup
 - **CPU**: Intel i5-8400 / AMD Ryzen 5 2600
 - **RAM**: 16GB DDR4 
 - **GPU**: NVIDIA GTX 1060 6GB (Maxwell+ architecture)
 - **Storage**: 10GB free space (SSD recommended)
 - **Camera**: USB 3.0 webcam with 1080p @ 30fps
 
-#### **Recommended Gaming Setup** 🚀
+#### Recommended Gaming Setup
 - **CPU**: Intel i7-10700 / AMD Ryzen 7 3700X
 - **RAM**: 32GB DDR4-3200
 - **GPU**: NVIDIA RTX 3060 or better (8GB+ VRAM)
 - **Storage**: 20GB free space on NVMe SSD
 - **Camera**: High-quality USB 3.0 camera with good low-light performance
 
-#### **Enthusiast Gaming Setup** 🔥
+#### Enthusiast Gaming Setup
 - **CPU**: Intel i9-12900K / AMD Ryzen 9 5900X
 - **RAM**: 64GB DDR4-3600+
 - **GPU**: NVIDIA RTX 4070 or better (12GB+ VRAM)
 - **Storage**: 50GB free space on PCIe 4.0 NVMe SSD
 - **Camera**: Professional webcam or capture card setup
 
-## 🔥 CUDA Acceleration Setup
+## CUDA Acceleration Setup
 
 ### NVIDIA CUDA Toolkit Installation
 
