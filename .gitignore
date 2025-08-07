@@ -79,6 +79,7 @@ copilot-instructions.md
 *.secret
 .env.local
 .env.*.local
+test_*.py
 
 # Development tools (local use)
 validate_imports.py
@@ -131,6 +132,7 @@ build_dll_auto.bat
 FAILURE_LOG.md
 test*.py
 commit*.txt
+*raw_camera.*
 
 # Redundant documentation (covered in main docs)
 docs/PROJECT_ORGANIZATION.md
